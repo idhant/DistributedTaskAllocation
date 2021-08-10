@@ -34,11 +34,11 @@ class DBARobot(Robot):
     def get_zone(self):
         return self.robotLocation.get_zone()
 
-        # DBA algorithm for each robot
-    
+    # DBA algorithm for each robot
     def DBA(self, task):
         print("")
-        print("Checking Robot Capability.")
+        print("-----")
+        print("Checking Robot: " + str(self.get_robot_id()) + " Capability.")
         # Check capability
         if self.calculate_capability(task) :
             print("Robot capable to perform this task")
@@ -65,6 +65,8 @@ class DBARobot(Robot):
                 task.allocate_task(self)
 
                 print("Robot: " + str(self.get_robot_id()) + " allocated task: " + str(task.get_task_id()) + " to itself.")
+                print("-----")
+                print("")
 
                 # store utility value 
                 self.set_assigned_task_utility(utility)
@@ -72,6 +74,7 @@ class DBARobot(Robot):
                 return True
 
             else:
+                print("Robot is Not Free")
                 current_task_quality = self.get_assigned_task().get_task_quality()
                 new_task_quality = task.get_task_quality()
 
@@ -80,29 +83,38 @@ class DBARobot(Robot):
                 # supercede the other task
                 if (new_task_quality - current_task_quality > differential_factor):
                     # calculate values and assign the robot this task
-                    distance = calculate_distance(self, task)
-                    visibility = calculate_visibility(self, distance)
+                    distance = self.calculate_distance(task)
+                    visibility = self.calculate_visibility(distance)
                     quality = task.get_task_quality()
                     
                     # Value recorded to compare optimization results
                     utility = quality * visibility 
 
-                    # deallocate previous task 
-                    self.get_assigned_task().deallocate_task()
+                    print("Distance of task from the robot is " + str(distance))
+                    print("Utility value of task assignment is " + str(utility))
 
-                    # allocate new task to robot
-                    self.assign_task(task.get_task_id())
-                    task.allocate_task(self.get_robot_id())
+                    # assign task to robot and robot to task
+                    self.assign_task(task)
+                    task.allocate_task(self)
+
+                    print("Robot: " + str(self.get_robot_id()) + " allocated task: " + str(task.get_task_id()) + " to itself.")
+                    print("-----")
+                    print("")
 
                     # store utility value 
                     self.set_assigned_task_utility(utility)
+
                     return True
 
                 else:
+                    print("The New task could not supercede the old task.")
+                    print("-----")
+                    print("")
                     return False      
 
         else:
             print("Robot is not capable of performing task.")
+            print("-----")
             print("")
             return False   
 

@@ -93,7 +93,6 @@ def create_robots(set):
         print("*****")
         print("")
 
-
 # Function to create different sets of tasks 
 def create_tasks(set):
     print("")
@@ -336,13 +335,27 @@ def create_tasks(set):
         print("*****")
         print("")
 
-
 def check_task_queue(tasks):
     if len(tasks) > 0 :
         return True
     else:
         return False
 
+def get_robot_zones():
+    robot_zone_list = []
+
+    for robot in robot_list :
+        zone = robot.get_zone()
+        robot_zone_list.append(zone)
+
+    return robot_zone_list
+
+def get_robot_distances_from_task(task):
+    robot_task_distances = []
+    for robot in robot_list :
+        distance = robot.calculate_distance(task)
+        robot_task_distances.append(distance)
+    return robot_task_distances
 
 def distributed_bees_algorithm():
     print("")
@@ -377,12 +390,70 @@ def distributed_bees_algorithm():
             elif task_assigned == False :
                 print("")
                 print("Could not find any robots in the same zone to the task")
-                    
+                
 
     else :
         print("*****")
         print("Task list is empty, Exiting Application.")
         print("*****")
+
+def distributed_bees_algorithm_zone():
+    print("")
+    print("*****")
+    print("DistributedBeesAlgorithm")
+    print("*****")
+    print("")
+    if check_task_queue(task_list) :
+        print("Task list is not empty, checking tasks.")
+        # Check the first task first
+        for task in task_list :
+            task_assigned = False
+
+            print("")
+            print("-----")
+            print("Checking task: " + str(task.get_task_id()))
+            zone = task.get_zone()
+            print("Task zone:  " + str(zone))
+            print("-----")
+            print("")
+
+            print("Checking for robots in this zone.")
+            print("")
+
+            # Send this task to all the robots in this zone
+            for robot in robot_list :
+                if robot.get_zone() == zone and task_assigned == False :
+                    print("Robot " + str(robot.get_robot_id()) + " is in Zone: " + str(zone))
+                    task_assigned = robot.DBA(task)
+                    
+            if task_assigned == True :
+                    print("Task: " + str(task.get_task_id()) + " is assigned to Robot: " + str(robot.get_robot_id()))
+            
+            elif task_assigned == False :
+                print("")
+                print("Could not find any robots in the same zone to the task")
+                print("Checking other robots in other zones")
+
+                #robot_task_distances = get_robot_distances_from_task(task)
+                robot_zone_list = get_robot_zones()
+                
+                i = 0
+                for robot_zone in robot_zone_list :
+                    if robot_zone != zone :
+                        task_assigned = robot_list[i].DBA(task)
+                        if task_assigned == True :
+                            break
+                    i += 1
+
+
+
+                
+
+    else :
+        print("*****")
+        print("Task list is empty, Exiting Application.")
+        print("*****")
+
 
 def print_task_allocations():
     print("")
@@ -396,7 +467,8 @@ def print_task_allocations():
 def main():
     create_tasks(4)
     create_robots(4)
-    distributed_bees_algorithm()
+    #distributed_bees_algorithm()
+    distributed_bees_algorithm_zone()
     print_task_allocations()
 
 if __name__ == '__main__':

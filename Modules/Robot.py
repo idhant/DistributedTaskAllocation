@@ -14,7 +14,7 @@ class Robot:
     def assign_task(self,task):
         self.taskAssigned = task
         self.isBusy = True
-
+        
     def get_assigned_task(self):
         return self.taskAssigned
 
