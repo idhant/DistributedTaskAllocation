@@ -5,13 +5,18 @@ class Robot:
         self.robotID = robotID
         self.robotType = robotType
         self.robotLocation = robotLocation
+        self.isCapable = isCapable
+        
         self.taskAssigned = -1
         self.isBusy = False
-        self.isCapable = isCapable
+        
 
-    def assign_task(self,taskID):
-        self.taskAssigned = taskID
+    def assign_task(self,task):
+        self.taskAssigned = task
         self.isBusy = True
+
+    def get_assigned_task(self):
+        return self.taskAssigned
 
     def get_robot_id(self):
         return self.robotID
