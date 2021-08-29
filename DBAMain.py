@@ -1,5 +1,6 @@
-#Modules and Classes
+# This Code file represents the scout robot partially.
 
+#Modules and Classes
 from Modules.DBARobot import DBARobot
 from Modules.Task import Task
 from Modules.Coordinate import Coordinate
@@ -9,331 +10,181 @@ import random
 task_list = []
 robot_list = []
 
-# Function to create different sets of robots
-def create_robots(set):
-    print("")
-    print("*****")
-    print("Starting create_robots function")
-    print("*****")
-    print("")
+# Modified function to create robots
+def create_robot_sets(number_of_robots, ground_robots, aerial_robots, verbose = True):
+    
+    if(number_of_robots == ground_robots + aerial_robots):
 
-    SET_ONE_ID = [1,2,3,4,5]
-    SET_TWO_ID = [1,2,3,4,5,6,7,8,9,10]
-    SET_THREE_ID = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-
-    TYPE_GROUND = "ground_robot"
-    TYPE_AERIAL = "aerial_robot"
-
-    TASK_LIST_GROUND = ["ground_fire_extinguish", "ground_rescue"]
-    TASK_LIST_AERIAL = ["aerial_fire_extinguish", "aerial_rescue"] 
-
-    BASE_LOCATION_X = 100
-    BASE_LOCATION_Y = 100
-    BASE_LOCATION_Z = 0
-
-    BASE_COORDINATES = Coordinate(BASE_LOCATION_X, BASE_LOCATION_Y, BASE_LOCATION_Z)
-
-    global robot_list
-
-    # set-1, 1 aerial robot, 4 ground robots
-    if(set == 1):
-        robot_list.append(DBARobot(SET_ONE_ID[0], TYPE_AERIAL, BASE_COORDINATES, TASK_LIST_AERIAL))
-        robot_list.append(DBARobot(SET_ONE_ID[1], TYPE_GROUND, BASE_COORDINATES, TASK_LIST_GROUND))
-        robot_list.append(DBARobot(SET_ONE_ID[2], TYPE_GROUND, BASE_COORDINATES, TASK_LIST_GROUND))
-        robot_list.append(DBARobot(SET_ONE_ID[3], TYPE_GROUND, BASE_COORDINATES, TASK_LIST_GROUND))
-        robot_list.append(DBARobot(SET_ONE_ID[4], TYPE_GROUND, BASE_COORDINATES, TASK_LIST_GROUND))
-        print("Created Set-" + str(set) + " of Robot Sets.")
-        print("")
-        for robot in robot_list:
+        if(verbose):
+            print("")
             print("*****")
-            print("Robot ID: " + str(robot.get_robot_id())) 
-            print("Robot Type: " + robot.get_robot_type()) 
-            print("Robot Location: ")
-            print("X: " + str(robot.get_robot_location().get_x_coordinate()))
-            print("Y: " + str(robot.get_robot_location().get_y_coordinate()))
-            print("Z: " + str(robot.get_robot_location().get_z_coordinate()))
-            print("Robot Task Capabilities: ")
-            for capability in robot.get_is_capable():
-                print(capability)
+            print("Starting create_robots function")
             print("*****")
             print("")
-        print("*****")
-        print("Ending create_robots function")
-        print("*****")
-        print("")
 
-    if(set == 4):
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        robot_list.append(DBARobot(SET_ONE_ID[0], TYPE_AERIAL, random_coordinates, TASK_LIST_AERIAL))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        robot_list.append(DBARobot(SET_ONE_ID[1], TYPE_GROUND, random_coordinates, TASK_LIST_GROUND))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        robot_list.append(DBARobot(SET_ONE_ID[2], TYPE_GROUND, random_coordinates, TASK_LIST_GROUND))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        robot_list.append(DBARobot(SET_ONE_ID[3], TYPE_GROUND, random_coordinates, TASK_LIST_GROUND))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        robot_list.append(DBARobot(SET_ONE_ID[4], TYPE_GROUND, random_coordinates, TASK_LIST_GROUND))
-        print("Created Set-" + str(set) + " of Robot Sets.")
-        print("")
-        for robot in robot_list:
             print("*****")
-            print("Robot ID: " + str(robot.get_robot_id())) 
-            print("Robot Type: " + robot.get_robot_type()) 
-            print("Robot Location: ")
-            print("X: " + str(robot.get_robot_location().get_x_coordinate()))
-            print("Y: " + str(robot.get_robot_location().get_y_coordinate()))
-            print("Z: " + str(robot.get_robot_location().get_z_coordinate()))
-            print("Robot Task Capabilities: ")
-            for capability in robot.get_is_capable():
-                print(capability)
+            print("Number of Robots to Create: " + str(number_of_robots))
+            print("Number of Ground Robots to Create:" + str(ground_robots))
+            print("Number of Aerial Robots to Create:" + str(aerial_robots))
+            print("*****")
+
+        TYPE_GROUND = "ground_robot"
+        TYPE_AERIAL = "aerial_robot"
+
+        TASK_LIST_GROUND = ["ground_fire_extinguish", "ground_rescue"]
+        TASK_LIST_AERIAL = ["aerial_fire_extinguish", "aerial_rescue"] 
+
+        global robot_list
+
+        robot_id = 0
+
+        for robot in range(ground_robots):
+            random_coordinates = Coordinate(round(200 * random.random(), 2), round(200 * random.random(), 2), round(200 * random.random(), 2))
+            robot_list.append(DBARobot(robot_id, TYPE_GROUND, random_coordinates, TASK_LIST_GROUND))
+            robot_id += 1
+
+        for robot in range(aerial_robots):
+            random_coordinates = Coordinate(round(200 * random.random(), 2), round(200 * random.random(), 2), round(200 * random.random(), 2))
+            robot_list.append(DBARobot(robot_id, TYPE_AERIAL, random_coordinates, TASK_LIST_AERIAL))
+            robot_id += 1
+
+        if(verbose):
+            print("Created " + str(number_of_robots) + " robots.")
+            print("")
+            for robot in robot_list:
+                print("*****")
+                print("Robot ID: " + str(robot.get_robot_id())) 
+                print("Robot Type: " + robot.get_robot_type()) 
+                print("Robot Location: ")
+                print("X: " + str(robot.get_robot_location().get_x_coordinate()))
+                print("Y: " + str(robot.get_robot_location().get_y_coordinate()))
+                print("Z: " + str(robot.get_robot_location().get_z_coordinate()))
+                print("Robot Task Capabilities: ")
+                for capability in robot.get_is_capable():
+                    print(capability)
+                print("*****")
+                print("")
+            print("*****")
+            print("Ending create_robots function")
             print("*****")
             print("")
-        print("*****")
-        print("Ending create_robots function")
-        print("*****")
-        print("")
 
-# Function to create different sets of tasks 
-def create_tasks(set):
-    print("")
-    print("*****")
-    print("Starting create_tasks function")
-    print("*****")
-    print("")
+    else:
+        print("Number of robots do not add up, please verify.")
 
-    SET_ONE_ID = [1,2,3,4,5]
-    SET_TWO_ID = [1,2,3,4,5,6,7,8,9,10]
-    SET_THREE_ID = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+# Modified function to create tasks for
+def create_task_sets(number_of_tasks, ground_rescue, ground_firefight, aerial_rescue, aerial_firefight, verbose = True):
 
-    TASK_AERIAL_FIREFIGHT = "aerial_fire_extinguish"
-    TASK_GROUND_FIREFIGHT = "ground_fire_extinguish"
-    TASK_AERIAL_RESCUE = "aerial_rescue"
-    TASK_GROUND_RESCUE = "ground_rescue"
-
-    QUALITY_AERIAL_FIREFIGHT = 6
-    QUALITY_GROUND_FIREFIGHT = 4
-    QUALITY_AERIAL_RESCUE = 10
-    QUALITY_GROUND_RESCUE = 8
-
-    SAMPLE_COORDINATE_X = 150
-    SAMPLE_COORDINATE_Y = 150
-    SAMPLE_COORDINATE_Z = 0
-    SAMPLE_COORDINATES = Coordinate(SAMPLE_COORDINATE_X, SAMPLE_COORDINATE_Y, SAMPLE_COORDINATE_Z)
-
-    global task_list
-
-    # set-1, 1 aerial firefight, 3 ground firefight, 1 ground rescue 
-    if(set == 1):
-        task_list.append(Task(SET_ONE_ID[0], QUALITY_AERIAL_FIREFIGHT, SAMPLE_COORDINATES, TASK_AERIAL_FIREFIGHT))
-        task_list.append(Task(SET_ONE_ID[1], QUALITY_GROUND_RESCUE, SAMPLE_COORDINATES, TASK_GROUND_RESCUE))
-        task_list.append(Task(SET_ONE_ID[2], QUALITY_GROUND_FIREFIGHT, SAMPLE_COORDINATES, TASK_GROUND_FIREFIGHT))
-        task_list.append(Task(SET_ONE_ID[3], QUALITY_GROUND_FIREFIGHT, SAMPLE_COORDINATES, TASK_GROUND_FIREFIGHT))
-        task_list.append(Task(SET_ONE_ID[4], QUALITY_GROUND_FIREFIGHT, SAMPLE_COORDINATES, TASK_GROUND_FIREFIGHT))
-        
-        print("Created Set-" + str(set) + " of Task Sets.")
-        print("")
-        for task in task_list:
+    if(number_of_tasks == ground_rescue + ground_firefight + aerial_rescue + aerial_firefight):
+        if(verbose):
+            print("")
             print("*****")
-            print("Task ID: " + str(task.get_task_id()))
-            print("Task Type: " + task.get_task_type())
-            print("Task Quality: "+ str(task.get_task_quality()))
-            print("Task Location: ")
-            print("X: " + str(task.get_task_location().get_x_coordinate()))
-            print("Y: " + str(task.get_task_location().get_y_coordinate()))
-            print("z: " + str(task.get_task_location().get_z_coordinate()))
-            #print(task.get_time_added())
+            print("Starting create_tasks function")
             print("*****")
             print("")
-        print("*****")
-        print("Ending create_tasks function")
-        print("*****")
-        print("")
 
-    if(set == 2):
-        task_list.append(Task(SET_TWO_ID[0], QUALITY_AERIAL_RESCUE, SAMPLE_COORDINATES, TASK_AERIAL_RESCUE))
-        task_list.append(Task(SET_TWO_ID[1], QUALITY_AERIAL_FIREFIGHT, SAMPLE_COORDINATES, TASK_AERIAL_FIREFIGHT))
-        task_list.append(Task(SET_TWO_ID[2], QUALITY_GROUND_RESCUE, SAMPLE_COORDINATES, TASK_GROUND_RESCUE))
-        task_list.append(Task(SET_TWO_ID[3], QUALITY_GROUND_RESCUE, SAMPLE_COORDINATES, TASK_GROUND_RESCUE))
-        task_list.append(Task(SET_TWO_ID[4], QUALITY_GROUND_FIREFIGHT, SAMPLE_COORDINATES, TASK_GROUND_FIREFIGHT))
-        task_list.append(Task(SET_TWO_ID[5], QUALITY_GROUND_FIREFIGHT, SAMPLE_COORDINATES, TASK_GROUND_FIREFIGHT))
-        task_list.append(Task(SET_TWO_ID[6], QUALITY_GROUND_FIREFIGHT, SAMPLE_COORDINATES, TASK_GROUND_FIREFIGHT))
-        task_list.append(Task(SET_TWO_ID[7], QUALITY_GROUND_FIREFIGHT, SAMPLE_COORDINATES, TASK_GROUND_FIREFIGHT))
-        task_list.append(Task(SET_TWO_ID[8], QUALITY_GROUND_FIREFIGHT, SAMPLE_COORDINATES, TASK_GROUND_FIREFIGHT))
-        task_list.append(Task(SET_TWO_ID[9], QUALITY_GROUND_FIREFIGHT, SAMPLE_COORDINATES, TASK_GROUND_FIREFIGHT))
-        print("Created Set-" + str(set) + " of Task Sets.")
-        print("")
-        for task in task_list:
             print("*****")
-            print("Task ID: " + str(task.get_task_id()))
-            print("Task Type: " + task.get_task_type())
-            print("Task Quality: "+ str(task.get_task_quality()))
-            print("Task Location: ")
-            print("X: " + str(task.get_task_location().get_x_coordinate()))
-            print("Y: " + str(task.get_task_location().get_y_coordinate()))
-            print("z: " + str(task.get_task_location().get_z_coordinate()))
-            #print(task.get_time_added())
+            print("Number of Tasks to Create: " + str(number_of_tasks))
+            print("Number of Ground Rescue Tasks to Create:" + str(ground_rescue))
+            print("Number of Ground Firefight Tasks to Create:" + str(ground_firefight))
+            print("Number of Aerial Rescue Tasks to Create:" + str(aerial_rescue))
+            print("Number of Aerial Firefight Tasks to Create:" + str(aerial_firefight))
+            print("*****")
+
+        # Task names
+        TASK_AERIAL_FIREFIGHT = "aerial_fire_extinguish"
+        TASK_GROUND_FIREFIGHT = "ground_fire_extinguish"
+        TASK_AERIAL_RESCUE = "aerial_rescue"
+        TASK_GROUND_RESCUE = "ground_rescue"
+
+        # Base qualities
+        QUALITY_AERIAL_FIREFIGHT = 6
+        QUALITY_GROUND_FIREFIGHT = 4
+        QUALITY_AERIAL_RESCUE = 10
+        QUALITY_GROUND_RESCUE = 8
+
+
+
+        global task_list
+
+        task_id = 0
+
+        for task in range(ground_rescue):
+            random_coordinates = Coordinate(round(200 * random.random(), 2), round(200 * random.random(), 2), round(200 * random.random(), 2))
+            zone = random_coordinates.get_zone()
+            new_quality = zone_quality_assigner(zone, QUALITY_GROUND_RESCUE)
+            task_list.append(Task(task_id, new_quality, random_coordinates, TASK_GROUND_RESCUE))
+            task_id += 1
+
+        for task in range(ground_firefight):
+            random_coordinates = Coordinate(round(200 * random.random(), 2), round(200 * random.random(), 2), round(200 * random.random(), 2))
+            zone = random_coordinates.get_zone()
+            new_quality = zone_quality_assigner(zone, QUALITY_GROUND_FIREFIGHT)
+            task_list.append(Task(task_id, new_quality, random_coordinates, TASK_GROUND_FIREFIGHT))
+            task_id += 1
+
+        for task in range(aerial_rescue):
+            random_coordinates = Coordinate(round(200 * random.random(), 2), round(200 * random.random(), 2), round(200 * random.random(), 2))
+            zone = random_coordinates.get_zone()
+            new_quality = zone_quality_assigner(zone, QUALITY_AERIAL_RESCUE)
+            task_list.append(Task(task_id, new_quality, random_coordinates, TASK_AERIAL_RESCUE))
+            task_id += 1
+
+        for task in range(aerial_firefight):
+            random_coordinates = Coordinate(round(200 * random.random(), 2), round(200 * random.random(), 2), round(200 * random.random(), 2))
+            zone = random_coordinates.get_zone()
+            new_quality = zone_quality_assigner(zone, QUALITY_AERIAL_FIREFIGHT)
+            task_list.append(Task(task_id, new_quality, random_coordinates, TASK_AERIAL_FIREFIGHT))
+            task_id += 1
+
+
+        if(verbose):
+            print("Created " + str(number_of_tasks) + " tasks.")
+            print("")
+            for task in task_list:
+                print("*****")
+                print("Task ID: " + str(task.get_task_id()))
+                print("Task Type: " + task.get_task_type())
+                print("Task Quality: "+ str(task.get_task_quality()))
+                print("Task Location: ")
+                print("X: " + str(task.get_task_location().get_x_coordinate()))
+                print("Y: " + str(task.get_task_location().get_y_coordinate()))
+                print("z: " + str(task.get_task_location().get_z_coordinate()))
+                print("Task Zone: " + str(task.get_zone()))
+                #print(task.get_time_added())
+                print("*****")
+                print("")
+            print("*****")
+            print("Ending create_tasks function")
             print("*****")
             print("")
-        print("*****")
-        print("Ending create_tasks function")
-        print("*****")
-        print("")
 
-    if(set == 3):
-        task_list.append(Task(SET_THREE_ID[0], QUALITY_AERIAL_RESCUE, SAMPLE_COORDINATES, TASK_AERIAL_RESCUE))
-        task_list.append(Task(SET_THREE_ID[1], QUALITY_AERIAL_FIREFIGHT, SAMPLE_COORDINATES, TASK_AERIAL_FIREFIGHT))
-        task_list.append(Task(SET_THREE_ID[2], QUALITY_AERIAL_FIREFIGHT, SAMPLE_COORDINATES, TASK_AERIAL_FIREFIGHT))
-        task_list.append(Task(SET_THREE_ID[3], QUALITY_GROUND_RESCUE, SAMPLE_COORDINATES, TASK_GROUND_RESCUE))
-        task_list.append(Task(SET_THREE_ID[4], QUALITY_GROUND_RESCUE, SAMPLE_COORDINATES, TASK_GROUND_RESCUE))
-        task_list.append(Task(SET_THREE_ID[5], QUALITY_GROUND_RESCUE, SAMPLE_COORDINATES, TASK_GROUND_RESCUE))
-        task_list.append(Task(SET_THREE_ID[6], QUALITY_GROUND_FIREFIGHT, SAMPLE_COORDINATES, TASK_GROUND_FIREFIGHT))
-        task_list.append(Task(SET_THREE_ID[7], QUALITY_GROUND_FIREFIGHT, SAMPLE_COORDINATES, TASK_GROUND_FIREFIGHT))
-        task_list.append(Task(SET_THREE_ID[8], QUALITY_GROUND_FIREFIGHT, SAMPLE_COORDINATES, TASK_GROUND_FIREFIGHT))
-        task_list.append(Task(SET_THREE_ID[9], QUALITY_GROUND_FIREFIGHT, SAMPLE_COORDINATES, TASK_GROUND_FIREFIGHT))
-        task_list.append(Task(SET_THREE_ID[10], QUALITY_GROUND_FIREFIGHT, SAMPLE_COORDINATES, TASK_GROUND_FIREFIGHT))
-        task_list.append(Task(SET_THREE_ID[11], QUALITY_GROUND_FIREFIGHT, SAMPLE_COORDINATES, TASK_GROUND_FIREFIGHT))
-        task_list.append(Task(SET_THREE_ID[12], QUALITY_GROUND_FIREFIGHT, SAMPLE_COORDINATES, TASK_GROUND_FIREFIGHT))
-        task_list.append(Task(SET_THREE_ID[13], QUALITY_GROUND_FIREFIGHT, SAMPLE_COORDINATES, TASK_GROUND_FIREFIGHT))
-        task_list.append(Task(SET_THREE_ID[14], QUALITY_GROUND_FIREFIGHT, SAMPLE_COORDINATES, TASK_GROUND_FIREFIGHT))
-        print("Created Set-" + str(set) + " of Task Sets.")
-        print("")
-        for task in task_list:
-            print("*****")
-            print("Task ID: " + str(task.get_task_id()))
-            print("Task Type: " + task.get_task_type())
-            print("Task Quality: "+ str(task.get_task_quality()))
-            print("Task Location: ")
-            print("X: " + str(task.get_task_location().get_x_coordinate()))
-            print("Y: " + str(task.get_task_location().get_y_coordinate()))
-            print("z: " + str(task.get_task_location().get_z_coordinate()))
-            #print(task.get_time_added())
-            print("*****")
-            print("")
-        print("*****")
-        print("Ending create_tasks function")
-        print("*****")
-        print("")
+    else:
+        print("Number of tasks do not add up, please verify.")
 
-    if(set == 4):
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_ONE_ID[0], QUALITY_AERIAL_FIREFIGHT, random_coordinates, TASK_AERIAL_FIREFIGHT))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_ONE_ID[1], QUALITY_GROUND_RESCUE, random_coordinates, TASK_GROUND_RESCUE))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_ONE_ID[2], QUALITY_GROUND_FIREFIGHT, random_coordinates, TASK_GROUND_FIREFIGHT))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_ONE_ID[3], QUALITY_GROUND_FIREFIGHT, random_coordinates, TASK_GROUND_FIREFIGHT))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_ONE_ID[4], QUALITY_GROUND_FIREFIGHT, random_coordinates, TASK_GROUND_FIREFIGHT))
-        
-        print("Created Set-" + str(set) + " of Task Sets.")
-        print("")
-        for task in task_list:
-            print("*****")
-            print("Task ID: " + str(task.get_task_id()))
-            print("Task Type: " + task.get_task_type())
-            print("Task Quality: "+ str(task.get_task_quality()))
-            print("Task Location: ")
-            print("X: " + str(task.get_task_location().get_x_coordinate()))
-            print("Y: " + str(task.get_task_location().get_y_coordinate()))
-            print("z: " + str(task.get_task_location().get_z_coordinate()))
-            #print(task.get_time_added())
-            print("*****")
-            print("")
-        print("*****")
-        print("Ending create_tasks function")
-        print("*****")
-        print("")
+def zone_quality_assigner(zone, base_quality):
+    # Zone multipliers
+    ZONE_ONE_X = 3
+    ZONE_TWO_X = 1.5
+    ZONE_THREE_X = 1
+    ZONE_FOUR_X = 0.75
 
-    if(set == 5):
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_TWO_ID[0], QUALITY_AERIAL_RESCUE, random_coordinates, TASK_AERIAL_RESCUE))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_TWO_ID[1], QUALITY_AERIAL_FIREFIGHT, random_coordinates, TASK_AERIAL_FIREFIGHT))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_TWO_ID[2], QUALITY_GROUND_RESCUE, random_coordinates, TASK_GROUND_RESCUE))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_TWO_ID[3], QUALITY_GROUND_RESCUE, random_coordinates, TASK_GROUND_RESCUE))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_TWO_ID[4], QUALITY_GROUND_FIREFIGHT, random_coordinates, TASK_GROUND_FIREFIGHT))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_TWO_ID[5], QUALITY_GROUND_FIREFIGHT, random_coordinates, TASK_GROUND_FIREFIGHT))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_TWO_ID[6], QUALITY_GROUND_FIREFIGHT, random_coordinates, TASK_GROUND_FIREFIGHT))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_TWO_ID[7], QUALITY_GROUND_FIREFIGHT, random_coordinates, TASK_GROUND_FIREFIGHT))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_TWO_ID[8], QUALITY_GROUND_FIREFIGHT, random_coordinates, TASK_GROUND_FIREFIGHT))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_TWO_ID[9], QUALITY_GROUND_FIREFIGHT, random_coordinates, TASK_GROUND_FIREFIGHT))
-        print("Created Set-" + str(set) + " of Task Sets.")
-        print("")
-        for task in task_list:
-            print("*****")
-            print("Task ID: " + str(task.get_task_id()))
-            print("Task Type: " + task.get_task_type())
-            print("Task Quality: "+ str(task.get_task_quality()))
-            print("Task Location: ")
-            print("X: " + str(task.get_task_location().get_x_coordinate()))
-            print("Y: " + str(task.get_task_location().get_y_coordinate()))
-            print("z: " + str(task.get_task_location().get_z_coordinate()))
-            #print(task.get_time_added())
-            print("*****")
-            print("")
-        print("*****")
-        print("Ending create_tasks function")
-        print("*****")
-        print("")
+    if(zone == 1):
+        new_quality = base_quality * ZONE_ONE_X
+        return new_quality
+    
+    if(zone == 2):
+        new_quality = base_quality * ZONE_TWO_X
+        return new_quality
 
-    if(set == 6):
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_THREE_ID[0], QUALITY_AERIAL_RESCUE, random_coordinates, TASK_AERIAL_RESCUE))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_THREE_ID[1], QUALITY_AERIAL_FIREFIGHT, random_coordinates, TASK_AERIAL_FIREFIGHT))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_THREE_ID[2], QUALITY_AERIAL_FIREFIGHT, random_coordinates, TASK_AERIAL_FIREFIGHT))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_THREE_ID[3], QUALITY_GROUND_RESCUE, random_coordinates, TASK_GROUND_RESCUE))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_THREE_ID[4], QUALITY_GROUND_RESCUE, random_coordinates, TASK_GROUND_RESCUE))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_THREE_ID[5], QUALITY_GROUND_RESCUE, random_coordinates, TASK_GROUND_RESCUE))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_THREE_ID[6], QUALITY_GROUND_FIREFIGHT, random_coordinates, TASK_GROUND_FIREFIGHT))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_THREE_ID[7], QUALITY_GROUND_FIREFIGHT, random_coordinates, TASK_GROUND_FIREFIGHT))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_THREE_ID[8], QUALITY_GROUND_FIREFIGHT, random_coordinates, TASK_GROUND_FIREFIGHT))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_THREE_ID[9], QUALITY_GROUND_FIREFIGHT, random_coordinates, TASK_GROUND_FIREFIGHT))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_THREE_ID[10], QUALITY_GROUND_FIREFIGHT, random_coordinates, TASK_GROUND_FIREFIGHT))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_THREE_ID[11], QUALITY_GROUND_FIREFIGHT, random_coordinates, TASK_GROUND_FIREFIGHT))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_THREE_ID[12], QUALITY_GROUND_FIREFIGHT, random_coordinates, TASK_GROUND_FIREFIGHT))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_THREE_ID[13], QUALITY_GROUND_FIREFIGHT, random_coordinates, TASK_GROUND_FIREFIGHT))
-        random_coordinates = Coordinate(200 * random.random(), 200 * random.random(), 200 * random.random())
-        task_list.append(Task(SET_THREE_ID[14], QUALITY_GROUND_FIREFIGHT, random_coordinates, TASK_GROUND_FIREFIGHT))
-        print("Created Set-" + str(set) + " of Task Sets.")
-        print("")
-        for task in task_list:
-            print("*****")
-            print("Task ID: " + str(task.get_task_id()))
-            print("Task Type: " + task.get_task_type())
-            print("Task Quality: "+ str(task.get_task_quality()))
-            print("Task Location: ")
-            print("X: " + str(task.get_task_location().get_x_coordinate()))
-            print("Y: " + str(task.get_task_location().get_y_coordinate()))
-            print("z: " + str(task.get_task_location().get_z_coordinate()))
-            #print(task.get_time_added())
-            print("*****")
-            print("")
-        print("*****")
-        print("Ending create_tasks function")
-        print("*****")
-        print("")
+    if(zone == 3):
+        new_quality = base_quality * ZONE_THREE_X
+        return new_quality
+
+    if(zone == 4):
+        new_quality = base_quality * ZONE_FOUR_X
+        return new_quality
+
 
 def check_task_queue(tasks):
     if len(tasks) > 0 :
@@ -397,26 +248,27 @@ def distributed_bees_algorithm():
         print("Task list is empty, Exiting Application.")
         print("*****")
 
-def distributed_bees_algorithm_zone():
-    print("")
+def distributed_bees_algorithm_zone(verbose = True):
+    print("") 
     print("*****")
     print("DistributedBeesAlgorithm")
     print("*****")
     print("")
+
     if check_task_queue(task_list) :
         print("Task list is not empty, checking tasks.")
+
         # Check the first task first
         for task in task_list :
             task_assigned = False
 
+            zone = task.get_zone()
             print("")
             print("-----")
             print("Checking task: " + str(task.get_task_id()))
-            zone = task.get_zone()
             print("Task zone:  " + str(zone))
             print("-----")
             print("")
-
             print("Checking for robots in this zone.")
             print("")
 
@@ -445,15 +297,10 @@ def distributed_bees_algorithm_zone():
                             break
                     i += 1
 
-
-
-                
-
     else :
         print("*****")
         print("Task list is empty, Exiting Application.")
         print("*****")
-
 
 def print_task_allocations():
     print("")
@@ -462,11 +309,19 @@ def print_task_allocations():
     print("*****")
     print("")
     for task in task_list:
-        print("Task: " + str(task.get_task_id()) + " is assigned to robot " + str(task.get_robot_id()))
+        if(task.get_robot_id() != -1):
+            print("Task: " + str(task.get_task_id()) + " is assigned to robot " + str(task.get_robot_id()))
+        else:
+            print("Task: " + str(task.get_task_id()) + " could not be assigned to any robot in the first run.")
 
 def main():
-    create_tasks(4)
-    create_robots(4)
+
+    # Simulate the creation of robots in the system 
+    create_robot_sets(10, 8, 2, False)
+
+    # Introduce tasks in the system
+    create_task_sets(10, 2, 4, 2, 2, False)
+
     #distributed_bees_algorithm()
     distributed_bees_algorithm_zone()
     print_task_allocations()

@@ -20,7 +20,7 @@ class DBARobot(Robot):
         y_axis_distance = pow(y_axis_distance, 2)
         z_axis_distance = self.robotLocation.get_z_coordinate() - task.taskLocation.get_z_coordinate()
         z_axis_distance = pow(z_axis_distance, 2)
-        distance = math.sqrt(x_axis_distance + y_axis_distance + z_axis_distance)
+        distance = round(math.sqrt(x_axis_distance + y_axis_distance + z_axis_distance), 2)
         return distance
 
     # function to calculate the visibility of the robot to the task
@@ -50,15 +50,14 @@ class DBARobot(Robot):
                 print("Robot is Free")
                 # calculate values and assign the robot this task
                 distance = self.calculate_distance(task)
-                visibility = self.calculate_visibility(distance)
+                #visibility = self.calculate_visibility(distance)
                 quality = task.get_task_quality()
                 
                 # Value recorded to compare optimization results
-                utility = quality * visibility 
+                utility = round(quality * distance, 2)
 
                 print("Distance of task from the robot is " + str(distance))
                 print("Utility value of task assignment is " + str(utility))
-
 
                 # assign task to robot and robot to task
                 self.assign_task(task)
@@ -84,11 +83,11 @@ class DBARobot(Robot):
                 if (new_task_quality - current_task_quality > differential_factor):
                     # calculate values and assign the robot this task
                     distance = self.calculate_distance(task)
-                    visibility = self.calculate_visibility(distance)
+                    #visibility = self.calculate_visibility(distance)
                     quality = task.get_task_quality()
                     
                     # Value recorded to compare optimization results
-                    utility = quality * visibility 
+                    utility = quality * distance
 
                     print("Distance of task from the robot is " + str(distance))
                     print("Utility value of task assignment is " + str(utility))
