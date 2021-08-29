@@ -39,22 +39,27 @@ class DBARobot(Robot):
         print("")
         print("-----")
         print("Checking Robot: " + str(self.get_robot_id()) + " Capability.")
-        # Check capability
+        
+        # Check Robot capability
         if self.calculate_capability(task) :
             print("Robot capable to perform this task")
             # check busy status
             print("Checking Robot Status")
+
+            # Check Robot Status
             busyStatus = self.get_robot_status()
 
+            # if robot is not busy
             if busyStatus is False:
                 print("Robot is Free")
+
                 # calculate values and assign the robot this task
                 distance = self.calculate_distance(task)
-                #visibility = self.calculate_visibility(distance)
+                visibility = self.calculate_visibility(distance)
                 quality = task.get_task_quality()
                 
                 # Value recorded to compare optimization results
-                utility = round(quality * distance, 2)
+                utility = round(quality * visibility, 2)
 
                 print("Distance of task from the robot is " + str(distance))
                 print("Utility value of task assignment is " + str(utility))
@@ -72,22 +77,31 @@ class DBARobot(Robot):
 
                 return True
 
+            # if robot is busy, check if reallocation can be done 
             else:
                 print("Robot is Not Free")
-                current_task_quality = self.get_assigned_task().get_task_quality()
+
+                # compare the quality values of the tasks
+                current_task = self.get_assigned_task()
+                current_task_quality = current_task.get_task_quality()
                 new_task_quality = task.get_task_quality()
 
-                differential_factor = 2
                 # quality factor is a threshold value which decides if one task can 
                 # supercede the other task
+                differential_factor = 2
+                
                 if (new_task_quality - current_task_quality > differential_factor):
-                    # calculate values and assign the robot this task
+
+                    # Unassign previous task 
+                    current_task.deallocate_task()
+
+                    # calculate values and assign new task to the the robot
                     distance = self.calculate_distance(task)
-                    #visibility = self.calculate_visibility(distance)
+                    visibility = self.calculate_visibility(distance)
                     quality = task.get_task_quality()
                     
                     # Value recorded to compare optimization results
-                    utility = quality * distance
+                    utility = round(quality * visibility, 2)
 
                     print("Distance of task from the robot is " + str(distance))
                     print("Utility value of task assignment is " + str(utility))
@@ -111,6 +125,7 @@ class DBARobot(Robot):
                     print("")
                     return False      
 
+        # Not capable of doing the task, simply return False
         else:
             print("Robot is not capable of performing task.")
             print("-----")

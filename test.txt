@@ -1,0 +1,505 @@
+This file is for the testcase-1
+
+*****
+DistributedBeesAlgorithm
+*****
+
+Task list is not empty, checking tasks.
+
+-----
+Checking task: 0
+Task zone:  3
+-----
+
+Checking for robots in this zone.
+
+
+Could not find any robots in the same zone to the task
+Checking other robots in other zones
+
+-----
+Checking Robot: 0 Capability.
+Robot capable to perform this task
+Checking Robot Status
+Robot is Free
+Distance of task from the robot is 187.2
+Utility value of task assignment is 0.04
+Robot: 0 allocated task: 0 to itself.
+-----
+
+
+-----
+Checking task: 1
+Task zone:  1
+-----
+
+Checking for robots in this zone.
+
+Robot 0 is in Zone: 1
+
+-----
+Checking Robot: 0 Capability.
+Robot capable to perform this task
+Checking Robot Status
+Robot is Not Free
+Distance of task from the robot is 51.44
+Utility value of task assignment is 0.47
+Robot: 0 allocated task: 1 to itself.
+-----
+
+Task: 1 is assigned to Robot: 9
+
+-----
+Checking task: 2
+Task zone:  2
+-----
+
+Checking for robots in this zone.
+
+Robot 2 is in Zone: 2
+
+-----
+Checking Robot: 2 Capability.
+Robot capable to perform this task
+Checking Robot Status
+Robot is Free
+Distance of task from the robot is 45.23
+Utility value of task assignment is 0.13
+Robot: 2 allocated task: 2 to itself.
+-----
+
+Task: 2 is assigned to Robot: 9
+
+-----
+Checking task: 3
+Task zone:  3
+-----
+
+Checking for robots in this zone.
+
+
+Could not find any robots in the same zone to the task
+Checking other robots in other zones
+
+-----
+Checking Robot: 0 Capability.
+Robot capable to perform this task
+Checking Robot Status
+Robot is Not Free
+The New task could not supercede the old task.
+-----
+
+
+-----
+Checking Robot: 1 Capability.
+Robot capable to perform this task
+Checking Robot Status
+Robot is Free
+Distance of task from the robot is 142.34
+Utility value of task assignment is 0.03
+Robot: 1 allocated task: 3 to itself.
+-----
+
+
+-----
+Checking task: 4
+Task zone:  3
+-----
+
+Checking for robots in this zone.
+
+
+Could not find any robots in the same zone to the task
+Checking other robots in other zones
+
+-----
+Checking Robot: 0 Capability.
+Robot capable to perform this task
+Checking Robot Status
+Robot is Not Free
+The New task could not supercede the old task.
+-----
+
+
+-----
+Checking Robot: 1 Capability.
+Robot capable to perform this task
+Checking Robot Status
+Robot is Not Free
+The New task could not supercede the old task.
+-----
+
+
+-----
+Checking Robot: 2 Capability.
+Robot capable to perform this task
+Checking Robot Status
+Robot is Not Free
+The New task could not supercede the old task.
+-----
+
+
+-----
+Checking Robot: 3 Capability.
+Robot capable to perform this task
+Checking Robot Status
+Robot is Free
+Distance of task from the robot is 181.15
+Utility value of task assignment is 0.02
+Robot: 3 allocated task: 4 to itself.
+-----
+
+
+-----
+Checking task: 5
+Task zone:  2
+-----
+
+Checking for robots in this zone.
+
+Robot 2 is in Zone: 2
+
+-----
+Checking Robot: 2 Capability.
+Robot capable to perform this task
+Checking Robot Status
+Robot is Not Free
+The New task could not supercede the old task.
+-----
+
+Robot 5 is in Zone: 2
+
+-----
+Checking Robot: 5 Capability.
+Robot capable to perform this task
+Checking Robot Status
+Robot is Free
+Distance of task from the robot is 92.35
+Utility value of task assignment is 0.06
+Robot: 5 allocated task: 5 to itself.
+-----
+
+Task: 5 is assigned to Robot: 9
+
+-----
+Checking task: 6
+Task zone:  3
+-----
+
+Checking for robots in this zone.
+
+
+Could not find any robots in the same zone to the task
+Checking other robots in other zones
+
+-----
+Checking Robot: 0 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 1 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 2 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 3 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 4 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 5 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 6 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 7 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 8 Capability.
+Robot capable to perform this task
+Checking Robot Status
+Robot is Free
+Distance of task from the robot is 154.55
+Utility value of task assignment is 0.06
+Robot: 8 allocated task: 6 to itself.
+-----
+
+
+-----
+Checking task: 7
+Task zone:  4
+-----
+
+Checking for robots in this zone.
+
+Robot 1 is in Zone: 4
+
+-----
+Checking Robot: 1 Capability.
+Robot is not capable of performing task.
+-----
+
+Robot 3 is in Zone: 4
+
+-----
+Checking Robot: 3 Capability.
+Robot is not capable of performing task.
+-----
+
+Robot 4 is in Zone: 4
+
+-----
+Checking Robot: 4 Capability.
+Robot is not capable of performing task.
+-----
+
+Robot 7 is in Zone: 4
+
+-----
+Checking Robot: 7 Capability.
+Robot is not capable of performing task.
+-----
+
+Robot 8 is in Zone: 4
+
+-----
+Checking Robot: 8 Capability.
+Robot capable to perform this task
+Checking Robot Status
+Robot is Not Free
+The New task could not supercede the old task.
+-----
+
+
+Could not find any robots in the same zone to the task
+Checking other robots in other zones
+
+-----
+Checking Robot: 0 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 2 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 5 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 6 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 9 Capability.
+Robot capable to perform this task
+Checking Robot Status
+Robot is Free
+Distance of task from the robot is 121.17
+Utility value of task assignment is 0.06
+Robot: 9 allocated task: 7 to itself.
+-----
+
+
+-----
+Checking task: 8
+Task zone:  3
+-----
+
+Checking for robots in this zone.
+
+
+Could not find any robots in the same zone to the task
+Checking other robots in other zones
+
+-----
+Checking Robot: 0 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 1 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 2 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 3 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 4 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 5 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 6 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 7 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 8 Capability.
+Robot capable to perform this task
+Checking Robot Status
+Robot is Not Free
+The New task could not supercede the old task.
+-----
+
+
+-----
+Checking Robot: 9 Capability.
+Robot capable to perform this task
+Checking Robot Status
+Robot is Not Free
+The New task could not supercede the old task.
+-----
+
+
+-----
+Checking task: 9
+Task zone:  3
+-----
+
+Checking for robots in this zone.
+
+
+Could not find any robots in the same zone to the task
+Checking other robots in other zones
+
+-----
+Checking Robot: 0 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 1 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 2 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 3 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 4 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 5 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 6 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 7 Capability.
+Robot is not capable of performing task.
+-----
+
+
+-----
+Checking Robot: 8 Capability.
+Robot capable to perform this task
+Checking Robot Status
+Robot is Not Free
+The New task could not supercede the old task.
+-----
+
+
+-----
+Checking Robot: 9 Capability.
+Robot capable to perform this task
+Checking Robot Status
+Robot is Not Free
+The New task could not supercede the old task.
+-----
+
+
+*****
+Task Allocations
+*****
+
+Task: 0 could not be assigned to any robot in the first run.
+Task: 1 is assigned to robot 0
+Task: 2 is assigned to robot 2
+Task: 3 is assigned to robot 1
+Task: 4 is assigned to robot 3
+Task: 5 is assigned to robot 5
+Task: 6 is assigned to robot 8
+Task: 7 is assigned to robot 9
+Task: 8 could not be assigned to any robot in the first run.
+Task: 9 could not be assigned to any robot in the first run.

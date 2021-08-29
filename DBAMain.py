@@ -6,6 +6,7 @@ from Modules.Task import Task
 from Modules.Coordinate import Coordinate
 import math
 import random
+import sys
 
 task_list = []
 robot_list = []
@@ -103,8 +104,6 @@ def create_task_sets(number_of_tasks, ground_rescue, ground_firefight, aerial_re
         QUALITY_AERIAL_RESCUE = 10
         QUALITY_GROUND_RESCUE = 8
 
-
-
         global task_list
 
         task_id = 0
@@ -162,6 +161,7 @@ def create_task_sets(number_of_tasks, ground_rescue, ground_firefight, aerial_re
     else:
         print("Number of tasks do not add up, please verify.")
 
+# Function to calculate adjusted quality value based on the zone multiplier
 def zone_quality_assigner(zone, base_quality):
     # Zone multipliers
     ZONE_ONE_X = 3
@@ -185,13 +185,28 @@ def zone_quality_assigner(zone, base_quality):
         new_quality = base_quality * ZONE_FOUR_X
         return new_quality
 
-
+# Function to check if the task queue is empty or not 
 def check_task_queue(tasks):
     if len(tasks) > 0 :
         return True
     else:
         return False
 
+# Function to return a  task with the highest priority
+def get_highest_priority_task():
+
+    highest_quality = task_list[0].get_task_quality()
+    highest_priority = 0
+
+    for task in task_list:
+        new_quality = task.get_task_quality()
+        if (new_quality > highest_quality):
+            highest_quality = new_quality
+            highest_priority = task.get_task_id()
+
+    return task_list[highest_priority]
+
+# Function to return a list with the respective robot zones as the elements
 def get_robot_zones():
     robot_zone_list = []
 
@@ -258,7 +273,7 @@ def distributed_bees_algorithm_zone(verbose = True):
     if check_task_queue(task_list) :
         print("Task list is not empty, checking tasks.")
 
-        # Check the first task first
+        # Check the first task first, which was found by the scout robot first 
         for task in task_list :
             task_assigned = False
 
@@ -316,6 +331,10 @@ def print_task_allocations():
 
 def main():
 
+    sys.stdout = open("test.txt", "w")
+
+    print("This file is for the testcase-1")
+
     # Simulate the creation of robots in the system 
     create_robot_sets(10, 8, 2, False)
 
@@ -325,6 +344,9 @@ def main():
     #distributed_bees_algorithm()
     distributed_bees_algorithm_zone()
     print_task_allocations()
+
+    sys.stdout.close()
+
 
 if __name__ == '__main__':
     main()
