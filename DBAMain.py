@@ -1,9 +1,9 @@
 # This Code file represents the scout robot partially.
 
 #Modules and Classes
-from Modules.DBARobot import DBARobot
-from Modules.Task import Task
-from Modules.Coordinate import Coordinate
+from Modules.Specific.DBARobot import DBARobot
+from Modules.Base.Task import Task
+from Modules.Base.Coordinate import Coordinate
 import math
 import random
 import sys
@@ -12,7 +12,7 @@ task_list = []
 robot_list = []
 
 # Modified function to create robots
-def create_robot_sets(number_of_robots, ground_robots, aerial_robots, verbose = True):
+def create_robot_sets(number_of_robots, ground_robots, aerial_robots, verbose = False):
     
     if(number_of_robots == ground_robots + aerial_robots):
 
@@ -74,7 +74,7 @@ def create_robot_sets(number_of_robots, ground_robots, aerial_robots, verbose = 
         print("Number of robots do not add up, please verify.")
 
 # Modified function to create tasks for
-def create_task_sets(number_of_tasks, ground_rescue, ground_firefight, aerial_rescue, aerial_firefight, verbose = True):
+def create_task_sets(number_of_tasks, ground_rescue, ground_firefight, aerial_rescue, aerial_firefight, verbose = False):
 
     if(number_of_tasks == ground_rescue + ground_firefight + aerial_rescue + aerial_firefight):
         if(verbose):
@@ -223,99 +223,126 @@ def get_robot_distances_from_task(task):
         robot_task_distances.append(distance)
     return robot_task_distances
 
-def distributed_bees_algorithm():
-    print("")
-    print("*****")
-    print("DistributedBeesAlgorithm")
-    print("*****")
-    print("")
-    if check_task_queue(task_list) :
-        print("Task list is not empty, checking tasks.")
+# MAin function which the scout robot runs 
+def distributed_bees_algorithm(verbose = False):
+    
+    if(verbose):
+        print("") 
+        print("*****")
+        print("DistributedBeesAlgorithm")
+        print("*****")
         print("")
-        # Check the first task first
-        for task in task_list :
-            task_assigned = False
-
-            print("-----")
-            print("Checking task: " + str(task.get_task_id()))
-            zone = task.get_zone()
-            print("Task zone:  " + str(zone))
-            print("")
-
-            print("Checking for robots in this zone")
-
-            # Send this task to all the robots in this zone
-            for robot in robot_list :
-                if robot.get_zone() == zone :
-                    print("Robot " + str(robot.get_robot_id()) + " is in Zone: " + str(zone))
-                    task_assigned = robot.DBA(task)
-            
-            if task_assigned == True :
-                print("Task: " + str(task.get_task_id()) + " is assigned to Robot: " + str(robot.get_robot_id()))
-            
-            elif task_assigned == False :
-                print("")
-                print("Could not find any robots in the same zone to the task")
-                
-
-    else :
-        print("*****")
-        print("Task list is empty, Exiting Application.")
-        print("*****")
-
-def distributed_bees_algorithm_zone(verbose = True):
-    print("") 
-    print("*****")
-    print("DistributedBeesAlgorithm")
-    print("*****")
-    print("")
 
     if check_task_queue(task_list) :
-        print("Task list is not empty, checking tasks.")
+
+        if (verbose):
+            print("Task list is not empty, checking tasks.")
 
         # Check the first task first, which was found by the scout robot first 
+        # first added into the queue -> first sent to the robots 
         for task in task_list :
-            task_assigned = False
-
-            zone = task.get_zone()
-            print("")
-            print("-----")
-            print("Checking task: " + str(task.get_task_id()))
-            print("Task zone:  " + str(zone))
-            print("-----")
-            print("")
-            print("Checking for robots in this zone.")
-            print("")
-
-            # Send this task to all the robots in this zone
-            for robot in robot_list :
-                if robot.get_zone() == zone and task_assigned == False :
-                    print("Robot " + str(robot.get_robot_id()) + " is in Zone: " + str(zone))
-                    task_assigned = robot.DBA(task)
-                    
-            if task_assigned == True :
-                    print("Task: " + str(task.get_task_id()) + " is assigned to Robot: " + str(robot.get_robot_id()))
             
-            elif task_assigned == False :
-                print("")
-                print("Could not find any robots in the same zone to the task")
-                print("Checking other robots in other zones")
+            # if task isn`t allocated
+            if (task.taskAllocated == False):
 
-                #robot_task_distances = get_robot_distances_from_task(task)
-                robot_zone_list = get_robot_zones()
+                zone = task.get_zone()
+
+                if (verbose):
+                    print("")
+                    print("-----")
+                    print("Checking task: " + str(task.get_task_id()))
+                    print("Task zone:  " + str(zone))
+                    print("-----")
+                    print("")
+                    print("Checking for robots in this zone.")
+                    print("")
+
+                # Send this task to all the robots in this zone
+                for robot in robot_list :
+                    if robot.get_zone() == zone and task.taskAllocated == False :
+                        if (verbose):
+                            print("Robot " + str(robot.get_robot_id()) + " is in Zone: " + str(zone))
+                        task_assigned = robot.DBA(task)
+                        
+                if task.taskAllocated == True :
+                    if (verbose):
+                        print("Task: " + str(task.get_task_id()) + " is assigned to Robot: " + str(robot.get_robot_id()))
                 
-                i = 0
-                for robot_zone in robot_zone_list :
-                    if robot_zone != zone :
-                        task_assigned = robot_list[i].DBA(task)
-                        if task_assigned == True :
-                            break
-                    i += 1
+                elif task.taskAllocated == False :
+                    if (verbose):
+                        print("")
+                        print("Could not find any robots in the same zone to the task")
+                        print("Checking other robots in other zones")
+
+                    robot_zone_list = get_robot_zones()
+                    
+                    i = 0
+                    for robot_zone in robot_zone_list :
+                        if robot_zone != zone :
+                            task_assigned = robot_list[i].DBA(task)
+                            if task_assigned == True :
+                                break
+                        i += 1
 
     else :
+        if (verbose):
+            print("*****")
+            print("Task list is empty, Exiting Application.")
+            print("*****")
+
+# Function to print all the robot details in the system
+def print_robot_details():
+    print("")
+    print("*****")
+    print("Robot Details in the system:")
+    print("*****")
+    print("")
+    for robot in robot_list:
         print("*****")
-        print("Task list is empty, Exiting Application.")
+        print("Robot ID: " + str(robot.get_robot_id())) 
+        print("Robot Type: " + robot.get_robot_type()) 
+        print("Robot Location: ")
+        print("X: " + str(robot.get_robot_location().get_x_coordinate()))
+        print("Y: " + str(robot.get_robot_location().get_y_coordinate()))
+        print("Z: " + str(robot.get_robot_location().get_z_coordinate()))
+        print("Robot Zone: " + str(robot.get_zone()))
+        print("Robot Task Capabilities: ")
+        for capability in robot.get_is_capable():
+            print(capability)
+        print("Robot Status: " + str(robot.get_robot_status()))
+        if(robot.get_assigned_task() != -1):
+            print("Robot allocated task: " + str(robot.get_assigned_task().get_task_id()))
+        if(robot.get_assigned_task() == -1):
+            print("Robot is not allocated any task.")
         print("*****")
+        print("")
+
+# Function to print all the task details in the system
+def print_task_details():
+    print("")
+    print("*****")
+    print("Task Details in the system:")
+    print("*****")
+    print("")
+    for task in task_list:
+        print("*****")
+        print("Task ID: " + str(task.get_task_id()))
+        print("Task Type: " + task.get_task_type())
+        print("Task Quality: "+ str(task.get_task_quality()))
+        print("Task Location: ")
+        print("X: " + str(task.get_task_location().get_x_coordinate()))
+        print("Y: " + str(task.get_task_location().get_y_coordinate()))
+        print("z: " + str(task.get_task_location().get_z_coordinate()))
+        print("Task Zone: " + str(task.get_zone()))
+        print("Task Time Added: " + str(task.get_time_added()))
+        print("Task Allocated: " + str(task.taskAllocated))
+        if(task.taskAllocated):
+            print("Robot Allocated to this task: " + str(task.robotAllocated.get_robot_id()))
+            print('Time Taken to allocate: ' + str(round(task.get_time_taken_to_allocate(), 2)) )
+        print()
+        print("*****")
+        print("")
+
 
 def print_task_allocations():
     print("")
@@ -329,6 +356,38 @@ def print_task_allocations():
         else:
             print("Task: " + str(task.get_task_id()) + " could not be assigned to any robot in the first run.")
 
+# function to print the global and local runtime of the algorithm
+def print_time_taken_to_allocate():
+    print("")
+    print("*****")
+    print("Time taken to allocate tasks:")
+    print("*****")
+    print("")
+
+    print("Time taken to allocate for particular tasks:")
+    print("")
+    total_time = 0
+    for task in task_list:
+        
+        # True
+        if task.taskAllocated :
+            print("Time taken to allocate task-" + str(task.get_task_id())  + " was " + str(round(task.get_time_taken_to_allocate(), 2)) + " seconds")
+            total_time += task.get_time_taken_to_allocate()
+
+        else:
+            if task.timesReallocated > 0 :
+                print("Task was allocated but deallocated later")
+                print("Task " + str(task.get_task_id()) + " was deallocated " + str(task.timesReallocated) + " times")
+                print("Time wasted on deallocation " + str(task.get_time_wasted_on_dealloaction()))
+                total_time += task.get_time_wasted_on_dealloaction()
+            else:
+                print("Task was never allocated")
+
+    
+    print("")
+    print("Total time taken to allocate all the tasks was " + str(round(total_time, 2)) + " seconds")
+    print("")
+
 def main():
 
     sys.stdout = open("test.txt", "w")
@@ -336,17 +395,23 @@ def main():
     print("This file is for the testcase-1")
 
     # Simulate the creation of robots in the system 
-    create_robot_sets(10, 8, 2, False)
+    create_robot_sets(1000, 1000, False)
 
     # Introduce tasks in the system
-    create_task_sets(10, 2, 4, 2, 2, False)
+    create_task_sets(1000, 1000, 0, 0, 0, False)
 
     #distributed_bees_algorithm()
-    distributed_bees_algorithm_zone()
-    print_task_allocations()
+    distributed_bees_algorithm()
+    
+    #print_task_allocations()
+
+    print_robot_details()
+
+    print_task_details()
+
+    print_time_taken_to_allocate()
 
     sys.stdout.close()
-
 
 if __name__ == '__main__':
     main()

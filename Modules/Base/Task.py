@@ -11,12 +11,14 @@ class Task:
         self.taskType = taskType
         
         current_time = time.time()
-        #now = datetime.now()
-        #current_time = now
-        #current_time = now.strftime("%H:%M:%S")
+        
         self.timeAdded = current_time
         self.robotAllocated = -1
         self.taskAllocated = False
+        self.timeAllocated = 0
+
+        self.timesReallocated = 0
+        self.timeDeallocated = 0
 
     def allocate_task(self,robot):
         self.robotAllocated = robot
@@ -31,6 +33,8 @@ class Task:
         self.taskAllocated = False
         current_time = time.time()
         self.timeDeallocated = current_time
+        self.timesReallocated += 1 
+        self.timeAllocated = 0
 
     def get_zone(self):
         return self.taskLocation.get_zone()
@@ -63,7 +67,16 @@ class Task:
         return self.timeAdded
 
     def get_time_taken_to_allocate(self):
-        return (self.timeAllocated - self.timeAdded )
+        if self.timeAllocated != 0 :
+            return (self.timeAllocated - self.timeAdded )
+        else:
+            return 0
+
+    def get_time_wasted_on_dealloaction(self):
+        if self.timeDeallocated != 0 :
+            return round((self.timeDeallocated - self.timeAdded ), 2)
+        else:
+            return 0
 
     def set_task_relative_quality(self, relative_quality):
         self.taskRelativeQuality = relative_quality
