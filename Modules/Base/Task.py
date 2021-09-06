@@ -72,7 +72,7 @@ class Task:
 
     def get_time_wasted_on_dealloaction(self):
         if self.timeDeallocated != 0 :
-            return round((self.timeDeallocated - self.timeAdded ), 2)
+            return (self.timeDeallocated - self.timeAdded )
         else:
             return 0
 
