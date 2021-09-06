@@ -4,12 +4,18 @@
 from Modules.Specific.DBARobot import DBARobot
 from Modules.Base.Task import Task
 from Modules.Base.Coordinate import Coordinate
+
 import math
 import random
 import sys
 
+# Global Vars to keep track of the agents and tasks
 task_list = []
 robot_list = []
+
+# Functions 
+
+# CREATION FUNCTIONS 
 
 # Modified function to create robots
 def create_robot_sets(number_of_robots, ground_robots, aerial_robots, verbose = False):
@@ -185,26 +191,14 @@ def zone_quality_assigner(zone, base_quality):
         new_quality = base_quality * ZONE_FOUR_X
         return new_quality
 
+# HELPER FUNCTIONS 
+
 # Function to check if the task queue is empty or not 
 def check_task_queue(tasks):
     if len(tasks) > 0 :
         return True
     else:
         return False
-
-# Function to return a  task with the highest priority
-def get_highest_priority_task():
-
-    highest_quality = task_list[0].get_task_quality()
-    highest_priority = 0
-
-    for task in task_list:
-        new_quality = task.get_task_quality()
-        if (new_quality > highest_quality):
-            highest_quality = new_quality
-            highest_priority = task.get_task_id()
-
-    return task_list[highest_priority]
 
 # Function to return a list with the respective robot zones as the elements
 def get_robot_zones():
@@ -216,12 +210,7 @@ def get_robot_zones():
 
     return robot_zone_list
 
-def get_robot_distances_from_task(task):
-    robot_task_distances = []
-    for robot in robot_list :
-        distance = robot.calculate_distance(task)
-        robot_task_distances.append(distance)
-    return robot_task_distances
+# MAIN FUNCTION
 
 # MAin function which the scout robot runs 
 def distributed_bees_algorithm(verbose = False):
@@ -290,6 +279,9 @@ def distributed_bees_algorithm(verbose = False):
             print("Task list is empty, Exiting Application.")
             print("*****")
 
+
+# PRINTING FUNCTIONS
+
 # Function to print all the robot details in the system
 def print_robot_details():
     print("")
@@ -338,12 +330,13 @@ def print_task_details():
         print("Task Allocated: " + str(task.taskAllocated))
         if(task.taskAllocated):
             print("Robot Allocated to this task: " + str(task.robotAllocated.get_robot_id()))
-            print('Time Taken to allocate: ' + str(round(task.get_time_taken_to_allocate(), 2)) )
+            print("Time Allocated: " + str(task.timeAllocated))
+            print('Time Taken to allocate: ' + str(round(task.get_time_taken_to_allocate(), 3)) )
         print()
         print("*****")
         print("")
 
-
+# Function to print allocations
 def print_task_allocations():
     print("")
     print("*****")
@@ -388,17 +381,20 @@ def print_time_taken_to_allocate():
     print("Total time taken to allocate all the tasks was " + str(round(total_time, 2)) + " seconds")
     print("")
 
+
+# STARTPOINT
+
 def main():
 
-    sys.stdout = open("test.txt", "w")
+    sys.stdout = open("Test/DBA/Experiment-1/Case-1/Set-1/test1.txt", "w")
 
     print("This file is for the testcase-1")
 
     # Simulate the creation of robots in the system 
-    create_robot_sets(1000, 1000, False)
+    create_robot_sets(10, 10, False)
 
     # Introduce tasks in the system
-    create_task_sets(1000, 1000, 0, 0, 0, False)
+    create_task_sets(10, 10, 0, 0, 0, False)
 
     #distributed_bees_algorithm()
     distributed_bees_algorithm()
@@ -415,3 +411,29 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+
+
+
+# NOT USED
+def get_robot_distances_from_task(task):
+    robot_task_distances = []
+    for robot in robot_list :
+        distance = robot.calculate_distance(task)
+        robot_task_distances.append(distance)
+    return robot_task_distances
+
+# Function to return a  task with the highest priority
+def get_highest_priority_task():
+
+    highest_quality = task_list[0].get_task_quality()
+    highest_priority = 0
+
+    for task in task_list:
+        new_quality = task.get_task_quality()
+        if (new_quality > highest_quality):
+            highest_quality = new_quality
+            highest_priority = task.get_task_id()
+
+    return task_list[highest_priority]

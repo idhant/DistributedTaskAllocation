@@ -10,7 +10,7 @@ class Task:
         self.taskLocation = taskLocation
         self.taskType = taskType
         
-        current_time = time.time()
+        current_time = time.perf_counter()
         
         self.timeAdded = current_time
         self.robotAllocated = -1
@@ -23,15 +23,13 @@ class Task:
     def allocate_task(self,robot):
         self.robotAllocated = robot
         self.taskAllocated = True
-        current_time = time.time()
-        #now = datetime.now()
-        #current_time = now.strftime("%H:%M:%S")
+        current_time = time.perf_counter()
         self.timeAllocated = current_time
 
     def deallocate_task(self):
         self.robotAllocated = -1
         self.taskAllocated = False
-        current_time = time.time()
+        current_time = time.perf_counter()
         self.timeDeallocated = current_time
         self.timesReallocated += 1 
         self.timeAllocated = 0
