@@ -19,10 +19,13 @@ class SPTRobot(Robot):
         self.taskAssigned = task
         self.isBusy = True
 
-
     def assign_service(self,service):
         self.serviceAssigned = service
         self.isBusy = True
+
+    def get_assigned_service(self):
+        return self.serviceAssigned
+
 
     # SPT algorithm
     def SPT(self, task, verbose=False):
@@ -97,9 +100,12 @@ class SPTRobot(Robot):
                             print("Distance of the service from the robot is " + str(distance))
                             print("Utility value of service assignment is " + str(utility))
 
-                        # assign task to robot and robot to task
+                        # assign service task to robot and robot to service task
                         self.assign_service(service)
                         service.allocate_task(self)
+
+                        self.assign_task(task)
+                        task.allocate_task(self)
 
                         if (verbose):
                             print("Robot: " + str(self.get_robot_id()) + " allocated task: " + str(task.get_task_id()) + " to itself.")

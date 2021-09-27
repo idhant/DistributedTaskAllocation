@@ -19,15 +19,11 @@ class SPTTask(Task):
         self.taskAllocated = False
         self.timeAllocated = 0
 
-        self.servicerobotAllocated = -1
-        self.serviceAllocated = False
-        self.servicetimeAllocated = 0
-
         self.timesReallocated = 0
         self.timeDeallocated = 0
 
     def service_required(self):
-        if(len(self.taskService) > 0):
+        if(self.taskService is not None):
             return True
         else:
             return False

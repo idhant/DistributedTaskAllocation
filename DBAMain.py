@@ -1,11 +1,14 @@
-# This Code file represents the scout robot partially.
+# This Code file represents the scout robot basically.
+# The main function being run here is distributed_bees_algorithm, which tries to 
+# emulate how a real scout robot would act when it has tasks in the queue  
+# The grid based allocation process is simulated by this function
 
 #Modules and Classes
-from Modules.Specific.DBARobot import DBARobot
+from Modules.Specific.DBA.DBARobot import DBARobot
+from Modules.Specific.DBA.DBACreate import DBACreate
 from Modules.Base.Task import Task
 from Modules.Base.Coordinate import Coordinate
 from Modules.Base.Print import Print
-from Modules.Specific.DBACreate import DBACreate
 
 import math
 import random
@@ -15,9 +18,7 @@ import sys
 task_list = []
 robot_list = []
 
-# Functions 
-
-# HELPER FUNCTIONS 
+# HELPER FUNCTIONS
 
 # Function to check if the task queue is empty or not 
 def check_task_queue(tasks):
@@ -43,15 +44,9 @@ def get_robot_zones():
 
     return robot_zone_list
 
-def randomize_robot_types(number_of_robots, ground_robots, aerial_robots):
-    ground_robots = random.randint(0, number_of_robots)
-    aerial_robots = number_of_robots - ground_robots
-
-
 # MAIN FUNCTION
-
 # Main function which the scout robot runs 
-def distributed_bees_algorithm(verbose = False):
+def grid_based_allocation(verbose = False):
     
     if(verbose):
         print("") 
@@ -123,10 +118,11 @@ def distributed_bees_algorithm(verbose = False):
             print("Task list is empty, Exiting Application.")
             print("*****")
 
-
-# STARTPOINT
+# MAIN STARPOINT
 
 def main():
+
+    # LOGGING RELATE GLOBAL VARS START
 
     # vars to control file name, location and details
     ALGORITHM = "DBA"
@@ -147,6 +143,9 @@ def main():
     AERIAL_RESCUE = 0
     AERIAL_FIREFIGHT = 0
 
+    # LOGGING RELATE GLOBAL VARS END
+
+    # STARTING THE LOG FILE
     sys.stdout = open(f"Test/{ALGORITHM}/Experiment-{EXPERIMENT}/Case-{CASE}/Set-{SET}/Run-{RUN}.txt", "w")
 
     print(f"This file is for {ALGORITHM}/Experiment-{EXPERIMENT}/Case-{CASE}/Set-{SET}/Run-{RUN}")
@@ -156,6 +155,7 @@ def main():
     print(f"Set-{SET}: Number of agents and tasks equal to {NUMBER_OF_ROBOTS}.")
     print(f"Run-{RUN}.")
 
+    # CREATING TASKS AND ROBOTS IN THE SYSTEM
     createVar = DBACreate()
 
     # Simulate the creation of robots in the system 
@@ -166,38 +166,19 @@ def main():
     #createVar.create_task_sets(task_list, NUMBER_OF_TASKS, GROUND_RESCUE , GROUND_FIREFIGHT, AERIAL_RESCUE, AERIAL_FIREFIGHT)
     createVar.create_random_task_sets(task_list, NUMBER_OF_TASKS, True, False)
 
-    #distributed_bees_algorithm()
-    distributed_bees_algorithm()
+    # SCOUT ROBOT MAIN FUNCTION
+    # Call the grid based allocation function
+    grid_based_allocation()
     
+    # PRINTING INFO INTO THE LOG FILES
     printVar = Print()
     printVar.print_task_allocations(task_list)
     printVar.print_time_taken_to_allocate(task_list)
     printVar.print_robot_details(robot_list)
     printVar.print_task_details(task_list)
 
+    # CLOSING THE LOG FILE
     sys.stdout.close()
 
 if __name__ == '__main__':
     main()
-
-# NOT USED
-def get_robot_distances_from_task(task):
-    robot_task_distances = []
-    for robot in robot_list :
-        distance = robot.calculate_distance(task)
-        robot_task_distances.append(distance)
-    return robot_task_distances
-
-# Function to return a  task with the highest priority
-def get_highest_priority_task():
-
-    highest_quality = task_list[0].get_task_quality()
-    highest_priority = 0
-
-    for task in task_list:
-        new_quality = task.get_task_quality()
-        if (new_quality > highest_quality):
-            highest_quality = new_quality
-            highest_priority = task.get_task_id()
-
-    return task_list[highest_priority]

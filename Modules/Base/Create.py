@@ -5,7 +5,7 @@ import random
 class Create:
     '''Base class to create tasks and robots of different types and numbers for different algorithms.'''
 
-    # Modified function to create tasks for
+    # Modified function to create tasks 
     def create_task_sets(self, task_list, number_of_tasks, ground_rescue, ground_firefight, aerial_rescue, aerial_firefight, verbose = False):
 
         if(number_of_tasks == ground_rescue + ground_firefight + aerial_rescue + aerial_firefight):
