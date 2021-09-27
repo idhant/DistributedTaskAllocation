@@ -4,6 +4,7 @@
 from Modules.Specific.SPTRobot import DBARobot
 from Modules.Base.Task import Task
 from Modules.Base.Coordinate import Coordinate
+
 import math
 import random
 import sys
@@ -362,10 +363,10 @@ def main():
     print("This file is for the testcase-1")
 
     # Simulate the creation of robots in the system 
-    create_robot_sets(1000, 1000, False)
+    create_robot_sets(10, 10, False)
 
     # Introduce tasks in the system
-    create_task_sets(1000, 1000, 0, 0, 0, False)
+    create_task_sets(10, 10, 0, 0, 0, False)
 
     #SPT
     SPT()

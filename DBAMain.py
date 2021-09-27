@@ -4,6 +4,8 @@
 from Modules.Specific.DBARobot import DBARobot
 from Modules.Base.Task import Task
 from Modules.Base.Coordinate import Coordinate
+from Modules.Base.Print import Print
+from Modules.Specific.DBACreate import DBACreate
 
 import math
 import random
@@ -14,281 +16,6 @@ task_list = []
 robot_list = []
 
 # Functions 
-
-# CREATION FUNCTIONS 
-
-# Modified function to create robots
-def create_robot_sets(number_of_robots, ground_robots, aerial_robots, verbose = False):
-    
-    if(number_of_robots == ground_robots + aerial_robots):
-
-        if(verbose):
-            print("")
-            print("*****")
-            print("Starting create_robots function")
-            print("*****")
-            print("")
-
-            print("*****")
-            print("Number of Robots to Create: " + str(number_of_robots))
-            print("Number of Ground Robots to Create:" + str(ground_robots))
-            print("Number of Aerial Robots to Create:" + str(aerial_robots))
-            print("*****")
-
-        TYPE_GROUND = "ground_robot"
-        TYPE_AERIAL = "aerial_robot"
-
-        TASK_LIST_GROUND = ["ground_fire_extinguish", "ground_rescue"]
-        TASK_LIST_AERIAL = ["aerial_fire_extinguish", "aerial_rescue"] 
-
-        global robot_list
-
-        robot_id = 0
-
-        for robot in range(ground_robots):
-            random_coordinates = Coordinate(round(200 * random.random(), 2), round(200 * random.random(), 2), round(200 * random.random(), 2))
-            robot_list.append(DBARobot(robot_id, TYPE_GROUND, random_coordinates, TASK_LIST_GROUND))
-            robot_id += 1
-
-        for robot in range(aerial_robots):
-            random_coordinates = Coordinate(round(200 * random.random(), 2), round(200 * random.random(), 2), round(200 * random.random(), 2))
-            robot_list.append(DBARobot(robot_id, TYPE_AERIAL, random_coordinates, TASK_LIST_AERIAL))
-            robot_id += 1
-
-        if(verbose):
-            print("Created " + str(number_of_robots) + " robots.")
-            print("")
-            for robot in robot_list:
-                print("*****")
-                print("Robot ID: " + str(robot.get_robot_id())) 
-                print("Robot Type: " + robot.get_robot_type()) 
-                print("Robot Location: ")
-                print("X: " + str(robot.get_robot_location().get_x_coordinate()))
-                print("Y: " + str(robot.get_robot_location().get_y_coordinate()))
-                print("Z: " + str(robot.get_robot_location().get_z_coordinate()))
-                print("Robot Task Capabilities: ")
-                for capability in robot.get_is_capable():
-                    print(capability)
-                print("*****")
-                print("")
-            print("*****")
-            print("Ending create_robots function")
-            print("*****")
-            print("")
-
-    else:
-        print("Number of robots do not add up, please verify.")
-
-def create_random_robot_sets(number_of_robots, verbose = False):
-    ground_robots = random.randint(0, number_of_robots)
-    aerial_robots = number_of_robots - ground_robots
-
-    if(verbose):
-        print("")
-        print("*****")
-        print("Starting create_robots function")
-        print("*****")
-        print("")
-
-        print("*****")
-        print("Number of Robots to Create: " + str(number_of_robots))
-        print("Number of Ground Robots to Create:" + str(ground_robots))
-        print("Number of Aerial Robots to Create:" + str(aerial_robots))
-        print("*****")
-
-    TYPE_GROUND = "ground_robot"
-    TYPE_AERIAL = "aerial_robot"
-
-    TASK_LIST_GROUND = ["ground_fire_extinguish", "ground_rescue"]
-    TASK_LIST_AERIAL = ["aerial_fire_extinguish", "aerial_rescue"] 
-
-    global robot_list
-
-    robot_id = 0
-
-    for robot in range(ground_robots):
-        random_coordinates = Coordinate(round(200 * random.random(), 2), round(200 * random.random(), 2), round(200 * random.random(), 2))
-        robot_list.append(DBARobot(robot_id, TYPE_GROUND, random_coordinates, TASK_LIST_GROUND))
-        robot_id += 1
-
-    for robot in range(aerial_robots):
-        random_coordinates = Coordinate(round(200 * random.random(), 2), round(200 * random.random(), 2), round(200 * random.random(), 2))
-        robot_list.append(DBARobot(robot_id, TYPE_AERIAL, random_coordinates, TASK_LIST_AERIAL))
-        robot_id += 1
-
-    if(verbose):
-        print("Created " + str(number_of_robots) + " robots.")
-        print("")
-        for robot in robot_list:
-            print("*****")
-            print("Robot ID: " + str(robot.get_robot_id())) 
-            print("Robot Type: " + robot.get_robot_type()) 
-            print("Robot Location: ")
-            print("X: " + str(robot.get_robot_location().get_x_coordinate()))
-            print("Y: " + str(robot.get_robot_location().get_y_coordinate()))
-            print("Z: " + str(robot.get_robot_location().get_z_coordinate()))
-            print("Robot Task Capabilities: ")
-            for capability in robot.get_is_capable():
-                print(capability)
-            print("*****")
-            print("")
-        print("*****")
-        print("Ending create_robots function")
-        print("*****")
-        print("")
-
-# Modified function to create tasks for
-def create_task_sets(number_of_tasks, ground_rescue, ground_firefight, aerial_rescue, aerial_firefight, verbose = False):
-
-    if(number_of_tasks == ground_rescue + ground_firefight + aerial_rescue + aerial_firefight):
-        if(verbose):
-            print("")
-            print("*****")
-            print("Starting create_tasks function")
-            print("*****")
-            print("")
-
-            print("*****")
-            print("Number of Tasks to Create: " + str(number_of_tasks))
-            print("Number of Ground Rescue Tasks to Create:" + str(ground_rescue))
-            print("Number of Ground Firefight Tasks to Create:" + str(ground_firefight))
-            print("Number of Aerial Rescue Tasks to Create:" + str(aerial_rescue))
-            print("Number of Aerial Firefight Tasks to Create:" + str(aerial_firefight))
-            print("*****")
-
-        # Task names
-        TASK_AERIAL_FIREFIGHT = "aerial_fire_extinguish"
-        TASK_GROUND_FIREFIGHT = "ground_fire_extinguish"
-        TASK_AERIAL_RESCUE = "aerial_rescue"
-        TASK_GROUND_RESCUE = "ground_rescue"
-
-        # Base qualities
-        QUALITY_AERIAL_FIREFIGHT = 6
-        QUALITY_GROUND_FIREFIGHT = 4
-        QUALITY_AERIAL_RESCUE = 10
-        QUALITY_GROUND_RESCUE = 8
-
-        global task_list
-
-        task_id = 0
-
-        for task in range(ground_rescue):
-            random_coordinates = Coordinate(round(200 * random.random(), 2), round(200 * random.random(), 2), round(200 * random.random(), 2))
-            zone = random_coordinates.get_zone()
-            new_quality = zone_quality_assigner(zone, QUALITY_GROUND_RESCUE)
-            task_list.append(Task(task_id, new_quality, random_coordinates, TASK_GROUND_RESCUE))
-            task_id += 1
-
-        for task in range(ground_firefight):
-            random_coordinates = Coordinate(round(200 * random.random(), 2), round(200 * random.random(), 2), round(200 * random.random(), 2))
-            zone = random_coordinates.get_zone()
-            new_quality = zone_quality_assigner(zone, QUALITY_GROUND_FIREFIGHT)
-            task_list.append(Task(task_id, new_quality, random_coordinates, TASK_GROUND_FIREFIGHT))
-            task_id += 1
-
-        for task in range(aerial_rescue):
-            random_coordinates = Coordinate(round(200 * random.random(), 2), round(200 * random.random(), 2), round(200 * random.random(), 2))
-            zone = random_coordinates.get_zone()
-            new_quality = zone_quality_assigner(zone, QUALITY_AERIAL_RESCUE)
-            task_list.append(Task(task_id, new_quality, random_coordinates, TASK_AERIAL_RESCUE))
-            task_id += 1
-
-        for task in range(aerial_firefight):
-            random_coordinates = Coordinate(round(200 * random.random(), 2), round(200 * random.random(), 2), round(200 * random.random(), 2))
-            zone = random_coordinates.get_zone()
-            new_quality = zone_quality_assigner(zone, QUALITY_AERIAL_FIREFIGHT)
-            task_list.append(Task(task_id, new_quality, random_coordinates, TASK_AERIAL_FIREFIGHT))
-            task_id += 1
-
-
-        if(verbose):
-            print("Created " + str(number_of_tasks) + " tasks.")
-            print("")
-            for task in task_list:
-                print("*****")
-                print("Task ID: " + str(task.get_task_id()))
-                print("Task Type: " + task.get_task_type())
-                print("Task Quality: "+ str(task.get_task_quality()))
-                print("Task Location: ")
-                print("X: " + str(task.get_task_location().get_x_coordinate()))
-                print("Y: " + str(task.get_task_location().get_y_coordinate()))
-                print("z: " + str(task.get_task_location().get_z_coordinate()))
-                print("Task Zone: " + str(task.get_zone()))
-                #print(task.get_time_added())
-                print("*****")
-                print("")
-            print("*****")
-            print("Ending create_tasks function")
-            print("*****")
-            print("")
-
-    else:
-        print("Number of tasks do not add up, please verify.")
-
-def create_random_task_sets(number_of_tasks, ground_types, aerial_types, verbose = False):
-
-    if (ground_types == True and aerial_types == True):
-        ground_tasks = random.randint(0, number_of_tasks)
-        aerial_tasks = number_of_tasks - ground_tasks
-
-        ground_rescue = random.randint(0, ground_tasks)
-        ground_firefight = ground_tasks - ground_rescue
-
-        aerial_rescue = random.randint(0, aerial_tasks)
-        aerial_firefight = aerial_tasks - aerial_rescue
-
-        create_task_sets(number_of_tasks, ground_rescue, ground_firefight, aerial_rescue, aerial_firefight, verbose)
-        return
-
-    if (ground_types == True and aerial_types == False):
-        ground_tasks = number_of_tasks
-
-        ground_rescue = random.randint(0, ground_tasks)
-        ground_firefight = ground_tasks - ground_rescue
-
-        aerial_rescue = 0
-        aerial_firefight = 0
-
-        create_task_sets(number_of_tasks, ground_rescue, ground_firefight, aerial_rescue, aerial_firefight, verbose)
-        return
-
-    if ground_types == False and aerial_types == True:
-        aerial_tasks = number_of_tasks
-        aerial_rescue = random.randint(0, aerial_tasks)
-        aerial_firefight = aerial_tasks - aerial_rescue
-        ground_rescue = 0
-        ground_firefight = 0
-
-        create_task_sets(number_of_tasks, ground_rescue, ground_firefight, aerial_rescue, aerial_firefight, verbose)
-        return
-
-    else:
-        print("No condition matched.")
-        return
-
-# Function to calculate adjusted quality value based on the zone multiplier
-def zone_quality_assigner(zone, base_quality):
-    # Zone multipliers
-    ZONE_ONE_X = 3
-    ZONE_TWO_X = 1.5
-    ZONE_THREE_X = 1
-    ZONE_FOUR_X = 0.75
-
-    if(zone == 1):
-        new_quality = base_quality * ZONE_ONE_X
-        return new_quality
-    
-    if(zone == 2):
-        new_quality = base_quality * ZONE_TWO_X
-        return new_quality
-
-    if(zone == 3):
-        new_quality = base_quality * ZONE_THREE_X
-        return new_quality
-
-    if(zone == 4):
-        new_quality = base_quality * ZONE_FOUR_X
-        return new_quality
 
 # HELPER FUNCTIONS 
 
@@ -323,7 +50,7 @@ def randomize_robot_types(number_of_robots, ground_robots, aerial_robots):
 
 # MAIN FUNCTION
 
-# MAin function which the scout robot runs 
+# Main function which the scout robot runs 
 def distributed_bees_algorithm(verbose = False):
     
     if(verbose):
@@ -396,127 +123,6 @@ def distributed_bees_algorithm(verbose = False):
             print("Task list is empty, Exiting Application.")
             print("*****")
 
-# PRINTING FUNCTIONS
-
-# Function to print all the robot details in the system
-def print_robot_details():
-    print("")
-    print("*****")
-    print("Robot Details in the system:")
-    print("*****")
-    print("")
-    for robot in robot_list:
-        print("*****")
-        print("Robot ID: " + str(robot.get_robot_id())) 
-        print("Robot Type: " + robot.get_robot_type()) 
-        print("Robot Location: ")
-        print("X: " + str(robot.get_robot_location().get_x_coordinate()))
-        print("Y: " + str(robot.get_robot_location().get_y_coordinate()))
-        print("Z: " + str(robot.get_robot_location().get_z_coordinate()))
-        print("Robot Zone: " + str(robot.get_zone()))
-        print("Robot Task Capabilities: ")
-        for capability in robot.get_is_capable():
-            print(capability)
-        print("Robot Status: " + str(robot.get_robot_status()))
-        if(robot.get_assigned_task() != -1):
-            print("Robot allocated task: " + str(robot.get_assigned_task().get_task_id()))
-        if(robot.get_assigned_task() == -1):
-            print("Robot is not allocated any task.")
-        print("*****")
-        print("")
-
-# Function to print all the task details in the system
-def print_task_details():
-    print("")
-    print("*****")
-    print("Task Details in the system:")
-    print("*****")
-    print("")
-    for task in task_list:
-        print("*****")
-        print("Task ID: " + str(task.get_task_id()))
-        print("Task Type: " + task.get_task_type())
-        print("Task Quality: "+ str(task.get_task_quality()))
-        print("Task Location: ")
-        print("X: " + str(task.get_task_location().get_x_coordinate()))
-        print("Y: " + str(task.get_task_location().get_y_coordinate()))
-        print("z: " + str(task.get_task_location().get_z_coordinate()))
-        print("Task Zone: " + str(task.get_zone()))
-        print("Task Time Added: " + str(round(task.get_time_added(), 4)) )
-        print("Task Allocated: " + str(task.taskAllocated))
-        if(task.taskAllocated):
-            print("Robot Allocated to this task: " + str(task.robotAllocated.get_robot_id()))
-            print("Time Allocated: " + str(round(task.timeAllocated, 4)) )
-            print('Time Taken to allocate: ' + str(round(task.get_time_taken_to_allocate(), 4)) )
-            print("Times Reallocated: " + str(task.timesReallocated))
-            print("Time Consumed in reallocations: " + str(round(task.timeDeallocated, 4)) )
-        print()
-        print("*****")
-        print("")
-
-# Function to print allocations
-def print_task_allocations():
-    print("")
-    print("*****")
-    print("Task Allocations")
-    print("*****")
-    print("")
-    for task in task_list:
-        if(task.get_robot_id() != -1):
-            print("Task: " + str(task.get_task_id()) + " is assigned to robot " + str(task.get_robot_id()))
-        else:
-            print("Task: " + str(task.get_task_id()) + " could not be assigned to any robot in the first run.")
-
-# function to print the global and local runtime of the algorithm
-def print_time_taken_to_allocate():
-    print("")
-    print("*****")
-    print("Time taken to allocate tasks:")
-    print("*****")
-    print("")
-
-    print("Time taken to allocate for particular tasks:")
-    print("")
-    total_time = 0
-    time_wasted = 0
-    reallocations_performed = 0
-    for task in task_list:
-        
-        # Task Allocated
-        if task.taskAllocated :
-
-            if task.timesReallocated > 0 :
-                reallocations_performed += 1
-                print("Task " + str(task.get_task_id()) + " was deallocated " + str(task.timesReallocated) + " times")
-                print("Time wasted on deallocation " + str(round(task.get_time_wasted_on_dealloaction(), 4)) + " seconds")
-                print("Time taken to allocate task-" + str(task.get_task_id())  + " was " + str(round(task.get_time_taken_to_allocate(), 4)) + " seconds")
-                total_time += task.get_time_taken_to_allocate()
-                time_wasted += task.get_time_wasted_on_dealloaction()
-
-            else:
-                print("Time taken to allocate task-" + str(task.get_task_id())  + " was " + str(round(task.get_time_taken_to_allocate(), 4)) + " seconds")
-                total_time += task.get_time_taken_to_allocate()
-
-        # Task not allocated
-        else:
-            if task.timesReallocated > 0 :
-                reallocations_performed += 1
-                print("Task was allocated but deallocated later")
-                print("Task " + str(task.get_task_id()) + " was deallocated " + str(task.timesReallocated) + " times")
-                print("Time wasted on deallocation " + str(task.get_time_wasted_on_dealloaction()))
-                total_time += task.get_time_wasted_on_dealloaction()
-                time_wasted += task.get_time_wasted_on_dealloaction()
-            else:
-                print("Task was never allocated")
-
-    
-    print("")
-    print("Total time taken to allocate all the tasks was " + str(round(total_time, 4)) + " seconds.")
-    print("")
-    print("Reallocations were performed " + str(reallocations_performed) + " times in total.")
-    print("")
-    print("Time consumed in reallocation of the the tasks was " + str(round(time_wasted, 4)) + " seconds.")
-    print("")
 
 # STARTPOINT
 
@@ -526,17 +132,17 @@ def main():
     ALGORITHM = "DBA"
     EXPERIMENT = "1"
     CASE = "1"
-    SET = "6"
-    RUN = "10"
+    SET = "1"
+    RUN = "1"
 
     # vars to control robot creation
-    NUMBER_OF_ROBOTS = 1000
-    GROUND_ROBOTS = 1000
+    NUMBER_OF_ROBOTS = 10
+    GROUND_ROBOTS = 10
     AERIAL_ROBOTS = 0
 
     # vars to control task creation
-    NUMBER_OF_TASKS = 1000
-    GROUND_RESCUE = 0
+    NUMBER_OF_TASKS = 10
+    GROUND_RESCUE = 10
     GROUND_FIREFIGHT = 0
     AERIAL_RESCUE = 0
     AERIAL_FIREFIGHT = 0
@@ -550,34 +156,29 @@ def main():
     print(f"Set-{SET}: Number of agents and tasks equal to {NUMBER_OF_ROBOTS}.")
     print(f"Run-{RUN}.")
 
+    createVar = DBACreate()
 
     # Simulate the creation of robots in the system 
-    create_robot_sets(NUMBER_OF_ROBOTS, GROUND_ROBOTS, AERIAL_ROBOTS)
+    createVar.create_robot_sets(robot_list, NUMBER_OF_ROBOTS, GROUND_ROBOTS, AERIAL_ROBOTS)
     #create_random_robot_sets(NUMBER_OF_ROBOTS)
 
     # Introduce tasks in the system
-    #create_task_sets(NUMBER_OF_TASKS, GROUND_RESCUE , GROUND_FIREFIGHT, AERIAL_RESCUE, AERIAL_FIREFIGHT)
-    create_random_task_sets(NUMBER_OF_TASKS, True, False)
+    #createVar.create_task_sets(task_list, NUMBER_OF_TASKS, GROUND_RESCUE , GROUND_FIREFIGHT, AERIAL_RESCUE, AERIAL_FIREFIGHT)
+    createVar.create_random_task_sets(task_list, NUMBER_OF_TASKS, True, False)
 
     #distributed_bees_algorithm()
     distributed_bees_algorithm()
     
-    print_task_allocations()
-
-    print_time_taken_to_allocate()
-
-    print_robot_details()
-
-    print_task_details()
+    printVar = Print()
+    printVar.print_task_allocations(task_list)
+    printVar.print_time_taken_to_allocate(task_list)
+    printVar.print_robot_details(robot_list)
+    printVar.print_task_details(task_list)
 
     sys.stdout.close()
 
 if __name__ == '__main__':
     main()
-
-
-
-
 
 # NOT USED
 def get_robot_distances_from_task(task):
