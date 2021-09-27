@@ -1,5 +1,5 @@
 from Modules.Base.Create import Create
-from Modules.Specific.DBARobot import DBARobot
+from Modules.Specific.DBA.DBARobot import DBARobot
 from Modules.Base.Coordinate import Coordinate
 import random
 
