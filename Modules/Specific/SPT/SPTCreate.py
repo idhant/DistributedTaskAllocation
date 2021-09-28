@@ -71,61 +71,32 @@ class SPTCreate(Create):
         # Function which creates randomized robot sets 
     
     # Function to create randomized SPT suitable robots
-    def create_random_robot_sets(self, robot_list, number_of_robots, verbose = False):
-        ground_robots = random.randint(0, number_of_robots)
-        aerial_robots = number_of_robots - ground_robots
+    def create_random_robot_sets(self, robot_list, number_of_robots, ground_types, aerial_types, verbose = False):
+        
+        if (ground_types is True and aerial_types is True): 
+            ground_robots = random.randint(0, number_of_robots)
+            aerial_robots = number_of_robots - ground_robots
 
-        if(verbose):
-            print("")
-            print("*****")
-            print("Starting create_robots function")
-            print("*****")
-            print("")
+            self.create_robot_sets(robot_list, number_of_robots, ground_robots, aerial_robots)
+            return
 
-            print("*****")
-            print("Number of Robots to Create: " + str(number_of_robots))
-            print("Number of Ground Robots to Create:" + str(ground_robots))
-            print("Number of Aerial Robots to Create:" + str(aerial_robots))
-            print("*****")
+        elif (ground_types is True and aerial_types is False):        
+            ground_robots = number_of_robots
+            aerial_robots = 0
 
-        TYPE_GROUND = "ground_robot"
-        TYPE_AERIAL = "aerial_robot"
+            self.create_robot_sets(robot_list, number_of_robots, ground_robots, aerial_robots)
+            return
 
-        TASK_LIST_GROUND = ["ground_fire_extinguish", "ground_rescue"]
-        TASK_LIST_AERIAL = ["aerial_fire_extinguish", "aerial_rescue"] 
+        elif (ground_types is False and aerial_types is True):        
+            ground_robots = 0
+            aerial_robots = number_of_robots
 
-        robot_id = 0
+            self.create_robot_sets(robot_list, number_of_robots, ground_robots, aerial_robots)
+            return
 
-        for robot in range(ground_robots):
-            random_coordinates = Coordinate(round(200 * random.random(), 2), round(200 * random.random(), 2), round(200 * random.random(), 2))
-            robot_list.append(SPTRobot(robot_id, TYPE_GROUND, random_coordinates, TASK_LIST_GROUND))
-            robot_id += 1
-
-        for robot in range(aerial_robots):
-            random_coordinates = Coordinate(round(200 * random.random(), 2), round(200 * random.random(), 2), round(200 * random.random(), 2))
-            robot_list.append(SPTRobot(robot_id, TYPE_AERIAL, random_coordinates, TASK_LIST_AERIAL))
-            robot_id += 1
-
-        if(verbose):
-            print("Created " + str(number_of_robots) + " robots.")
-            print("")
-            for robot in robot_list:
-                print("*****")
-                print("Robot ID: " + str(robot.get_robot_id())) 
-                print("Robot Type: " + robot.get_robot_type()) 
-                print("Robot Location: ")
-                print("X: " + str(robot.get_robot_location().get_x_coordinate()))
-                print("Y: " + str(robot.get_robot_location().get_y_coordinate()))
-                print("Z: " + str(robot.get_robot_location().get_z_coordinate()))
-                print("Robot Task Capabilities: ")
-                for capability in robot.get_is_capable():
-                    print(capability)
-                print("*****")
-                print("")
-            print("*****")
-            print("Ending create_robots function")
-            print("*****")
-            print("")
+        else:
+            print("No condition matched.")
+            return
 
     # Function to create SPT suitable tasks
     def create_task_sets(self, task_list, number_of_tasks, ground_rescue, ground_firefight, aerial_rescue, aerial_firefight, number_of_services, ground_services, aerial_services, verbose = False):

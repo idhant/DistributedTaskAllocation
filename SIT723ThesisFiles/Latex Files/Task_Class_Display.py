@@ -10,36 +10,21 @@ class Task:
         self.taskLocation = taskLocation
         self.taskType = taskType
         
-        current_time = time.perf_counter()
-        
+        current_time = time.time()
+        #now = datetime.now()
+        #current_time = now
+        #current_time = now.strftime("%H:%M:%S")
         self.timeAdded = current_time
-        self.robotAllocated = -1
+        self.robotAllocated = 0
         self.taskAllocated = False
-        self.timeAllocated = 0
 
-        self.timesReallocated = 0
-        self.timeDeallocated = 0
-
-        self.taskUtility = None
-
-    def allocate_task(self, robot, utility):
-        self.robotAllocated = robot
+    def allocate_task(self,robotID):
+        self.robotAllocated = robotID
         self.taskAllocated = True
-        current_time = time.perf_counter()
+        current_time = time.time()
+        #now = datetime.now()
+        #current_time = now.strftime("%H:%M:%S")
         self.timeAllocated = current_time
-        self.taskUtility = utility
-
-    def deallocate_task(self):
-        self.robotAllocated = -1
-        self.taskAllocated = False
-        current_time = time.perf_counter()
-        self.timeDeallocated = current_time
-        self.timesReallocated += 1 
-        self.timeAllocated = 0
-        self.taskUtility = None
-
-    def get_zone(self):
-        return self.taskLocation.get_zone()
 
     def get_task_id(self):
         return self.taskID
@@ -59,26 +44,11 @@ class Task:
     def get_robot_allocated(self):
         return self.robotAllocated
 
-    def get_robot_id(self):
-        if self.robotAllocated != -1 :
-            return self.robotAllocated.get_robot_id()
-        else :
-            return -1
-
     def get_time_added(self):
         return self.timeAdded
 
     def get_time_taken_to_allocate(self):
-        if self.timeAllocated != 0 :
-            return (self.timeAllocated - self.timeAdded )
-        else:
-            return 0
-
-    def get_time_wasted_on_dealloaction(self):
-        if self.timeDeallocated != 0 :
-            return (self.timeDeallocated - self.timeAdded )
-        else:
-            return 0
+        return (self.timeAllocated - self.timeAdded )
 
     def set_task_relative_quality(self, relative_quality):
         self.taskRelativeQuality = relative_quality

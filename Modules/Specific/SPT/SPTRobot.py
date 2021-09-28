@@ -15,17 +15,12 @@ class SPTRobot(Robot):
 
         self.serviceAssigned = -1
 
-    def assign_task(self,task):
-        self.taskAssigned = task
-        self.isBusy = True
-
     def assign_service(self,service):
         self.serviceAssigned = service
         self.isBusy = True
 
     def get_assigned_service(self):
         return self.serviceAssigned
-
 
     # SPT algorithm
     def SPT(self, task, verbose=False):
@@ -49,10 +44,10 @@ class SPTRobot(Robot):
                 if (verbose):
                     print("Robot is Free")
 
-                # if the task doesnt require any services, proceed as normal
+                # if the task doesn`t require any services, proceed as normal
                 if task.service_required() is False:
                     if(verbose):
-                        print("Task doesnt require any services.")
+                        print("Task does not require any services.")
                     
                     # calculate values and assign the robot this task
                     distance = self.calculate_distance(task)
@@ -66,35 +61,34 @@ class SPTRobot(Robot):
                         print("Distance of task from the robot is " + str(distance))
                         print("Utility value of task assignment is " + str(utility))
 
-                    # assign task to robot and robot to task
+                    # assign task to robot and robot to task and store the utility value 
                     self.assign_task(task)
-                    task.allocate_task(self)
+                    task.allocate_task(self, utility)
 
                     if (verbose):
                         print("Robot: " + str(self.get_robot_id()) + " allocated task: " + str(task.get_task_id()) + " to itself.")
                         print("-----")
                         print("")
 
-                    # store utility value 
-                    self.set_assigned_task_utility(utility)
+                    return True
 
                 # if the task requires services
-                if task.service_required() is True:
+                elif task.service_required() is True:
                     if(verbose):
                         print("Task requires completion of a service before it can be assigned to this robot.")
 
                     service = task.taskService
 
                     # if this robot can perform this service on its own, complete the service first
-                    if self.calculate_capability(service):
+                    if self.calculate_capability(service) is True:
                         
                         # calculate values and assign the robot this service
-                        distance = self.calculate_distance(service)
-                        visibility = self.calculate_visibility(distance)
-                        quality = service.get_task_quality()
+                        serviceDistance = self.calculate_distance(service)
+                        serviceVisibility = self.calculate_visibility(serviceDistance)
+                        serviceQuality = service.get_task_quality()
                         
                         # Value recorded to compare optimization results
-                        utility = round(quality * visibility, 2)
+                        serviceUtility = round(serviceQuality * serviceVisibility, 2)
 
                         if (verbose):
                             print("Distance of the service from the robot is " + str(distance))
@@ -102,22 +96,37 @@ class SPTRobot(Robot):
 
                         # assign service task to robot and robot to service task
                         self.assign_service(service)
-                        service.allocate_task(self)
+                        service.allocate_task(self, serviceUtility)
 
+                        # calculate values and assign the robot this task
+                        distance = self.calculate_distance(task)
+                        visibility = self.calculate_visibility(distance)
+                        quality = task.get_task_quality()
+                        
+                        # Value recorded to compare optimization results
+                        utility = round(quality * visibility, 2)
+
+                        if (verbose):
+                            print("Distance of task from the robot is " + str(distance))
+                            print("Utility value of task assignment is " + str(utility))
+
+                        # assign task to robot and robot to task and store the utility value 
                         self.assign_task(task)
-                        task.allocate_task(self)
+                        task.allocate_task(self, utility)
 
                         if (verbose):
                             print("Robot: " + str(self.get_robot_id()) + " allocated task: " + str(task.get_task_id()) + " to itself.")
                             print("-----")
                             print("")
 
-                        # store utility value 
-                        #self.set_assigned_task_utility(utility)
+                        return True
+
+                    if self.calculate_capability(service) is False:
+                        return False
 
             # if robot is busy, check if reallocation can be done
             # NO REALLOCATION
-        
+
         # Not capable of doing the task, simply return False
         else:
             if (verbose):

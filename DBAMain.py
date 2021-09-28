@@ -27,21 +27,21 @@ def main():
 
     # vars to control file name, location and details
     ALGORITHM = "DBA"
-    EXPERIMENT = "1"
+    EXPERIMENT = "2"
     CASE = "1"
     SET = "1"
-    RUN = "1"
+    RUN = "2"
 
     # vars to control robot creation
-    NUMBER_OF_ROBOTS = 2
-    GROUND_ROBOTS = 1
-    AERIAL_ROBOTS = 1
+    NUMBER_OF_ROBOTS = 10
+    GROUND_ROBOTS = 0
+    AERIAL_ROBOTS = 0
 
     # vars to control task creation
-    NUMBER_OF_TASKS = 2
-    GROUND_RESCUE = 1
+    NUMBER_OF_TASKS = 10
+    GROUND_RESCUE = 0
     GROUND_FIREFIGHT = 0
-    AERIAL_RESCUE = 1
+    AERIAL_RESCUE = 0
     AERIAL_FIREFIGHT = 0
 
     # LOGGING RELATE GLOBAL VARS END
@@ -51,8 +51,8 @@ def main():
 
     print(f"This file is for {ALGORITHM}/Experiment-{EXPERIMENT}/Case-{CASE}/Set-{SET}/Run-{RUN}")
 
-    print(f"Experiment-{EXPERIMENT}: incrementally increasing the number of robots and tasks in the system.")
-    print(f"Case-{CASE}: the type of tasks and robots are also limited to one category such as ground based. ")
+    print(f"Experiment-{EXPERIMENT}: Scalability Testing")
+    print(f"Case-{CASE}:  ")
     print(f"Set-{SET}: Number of agents and tasks equal to {NUMBER_OF_ROBOTS}.")
     print(f"Run-{RUN}.")
 
@@ -61,7 +61,7 @@ def main():
 
     # Simulate the creation of robots in the system 
     #createVar.create_robot_sets(ROBOT_LIST, NUMBER_OF_ROBOTS, GROUND_ROBOTS, AERIAL_ROBOTS)
-    createVar.create_random_robot_sets(ROBOT_LIST, NUMBER_OF_ROBOTS)
+    createVar.create_random_robot_sets(ROBOT_LIST, NUMBER_OF_ROBOTS, True, True)
 
     # Introduce tasks in the system
     #createVar.create_task_sets(TASK_LIST, NUMBER_OF_TASKS, GROUND_RESCUE , GROUND_FIREFIGHT, AERIAL_RESCUE, AERIAL_FIREFIGHT)

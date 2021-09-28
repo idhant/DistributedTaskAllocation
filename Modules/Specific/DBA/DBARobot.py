@@ -4,7 +4,6 @@ from Modules.Base.Robot import Robot
 class DBARobot(Robot):
     '''Child class to represent the robot in a DBA Environment.'''
 
-
     # DBA algorithm for each robot
     def DBA(self, task, verbose=False):
         if (verbose):
@@ -39,17 +38,14 @@ class DBARobot(Robot):
                     print("Distance of task from the robot is " + str(distance))
                     print("Utility value of task assignment is " + str(utility))
 
-                # assign task to robot and robot to task
+                # assign task to robot and robot to task and store the utility value 
                 self.assign_task(task)
-                task.allocate_task(self)
+                task.allocate_task(self, utility)
 
                 if (verbose):
                     print("Robot: " + str(self.get_robot_id()) + " allocated task: " + str(task.get_task_id()) + " to itself.")
                     print("-----")
                     print("")
-
-                # store utility value 
-                self.set_assigned_task_utility(utility)
 
                 return True
 
@@ -84,17 +80,14 @@ class DBARobot(Robot):
                         print("Distance of task from the robot is " + str(distance))
                         print("Utility value of task assignment is " + str(utility))
 
-                    # assign task to robot and robot to task
+                    # assign task to robot and robot to task and store the utility value 
                     self.assign_task(task)
-                    task.allocate_task(self)
+                    task.allocate_task(self, utility)
 
                     if (verbose):
                         print("Robot: " + str(self.get_robot_id()) + " allocated task: " + str(task.get_task_id()) + " to itself.")
                         print("-----")
                         print("")
-
-                    # store utility value 
-                    self.set_assigned_task_utility(utility)
 
                     return True
 

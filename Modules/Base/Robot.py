@@ -70,9 +70,6 @@ class Robot:
         visibility = 1/distance
         return visibility
 
-    def set_assigned_task_utility(self, utility):
-        self.taskUtility = utility
-
     def get_zone(self):
         return self.robotLocation.get_zone()
 

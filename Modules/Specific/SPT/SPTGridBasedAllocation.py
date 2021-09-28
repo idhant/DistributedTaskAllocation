@@ -45,12 +45,18 @@ class SPTGridBasedAllocation(GridBasedAllocation):
                             if robot.get_zone() == zone and task.taskAllocated == False :
                                 if (verbose):
                                     print("Robot " + str(robot.get_robot_id()) + " is in Zone: " + str(zone))
-                                task_assigned = robot.SPT(task)
                                 
-                        if task.taskAllocated == True :
-                            if (verbose):
-                                print("Task: " + str(task.get_task_id()) + " is assigned to Robot: " + str(robot.get_robot_id()))
+                                robot.SPT(task)
+                                
                         
+                        # Both task and service allocated, do nothing
+                        if task.taskAllocated == True :
+                            if task.taskService is None or task.taskService.taskAllocated == True :
+                                if (verbose):
+                                    print("Task: " + str(task.get_task_id()) + " is assigned to Robot: " + str(task.robotAllocated.get_robot_id()))
+                                    print("Service of Task: " + str(task.get_task_id()) + " is assigned to Robot: " + str(task.taskService.robotAllocated().get_robot_id()))
+                            
+                        # Task wasn`t allocated
                         elif task.taskAllocated == False :
                             if (verbose):
                                 print("")
