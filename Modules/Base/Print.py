@@ -65,9 +65,11 @@ class Print:
         print("*****")
         print("")
         averageUtility = 0
+        totalTaskAllocations = 0
         for task in task_list:
             if(task.get_robot_id() != -1):
                 averageUtility += task.taskUtility
+                totalTaskAllocations += 1
                 print("Task: " + str(task.get_task_id()) + " is assigned to robot " + str(task.get_robot_id()) + " with utility of " + str(task.taskUtility) + "")
             else:
                 print("Task: " + str(task.get_task_id()) + " could not be assigned to any robot in the first run.")
@@ -75,6 +77,8 @@ class Print:
         averageUtility = round(averageUtility / len(task_list), 2)
         print("")
         print("Average allocation utility value is " + str(averageUtility) + "")
+        print("")
+        print("Total Task Allocations Made: " + str(totalTaskAllocations) + "")
 
     # function to print the global and local runtime of the algorithm
     def print_time_taken_to_allocate(self, task_list):
