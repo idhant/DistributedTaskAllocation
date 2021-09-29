@@ -24,22 +24,22 @@ def main():
     ALGORITHM = "SPT"
     EXPERIMENT = "2"
     CASE = "1"
-    SET = "1"
-    RUN = "1"
+    SET = "6"
+    RUN = "10"
 
     # vars to control robot creation
-    NUMBER_OF_ROBOTS = 10
+    NUMBER_OF_ROBOTS = 250
     GROUND_ROBOTS = 0
     AERIAL_ROBOTS = 0
 
     # vars to control task creation
-    NUMBER_OF_TASKS = 10
+    NUMBER_OF_TASKS = 250
     GROUND_RESCUE = 0
     GROUND_FIREFIGHT = 0
     AERIAL_RESCUE = 0
     AERIAL_FIREFIGHT = 0
     
-    NUMBER_OF_SERVICES = 5
+    NUMBER_OF_SERVICES = 125
     GROUND_SERVICES = 0
     AERIAL_SERVICES = 0
 

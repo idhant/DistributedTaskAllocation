@@ -85,9 +85,11 @@ class SPTPrint(Print):
         print("*****")
         print("")
         averageUtility = 0
+        totalTaskAllocations = 0
         for task in task_list:
             if(task.get_robot_id() != -1):
                 averageUtility += task.taskUtility
+                totalTaskAllocations += 1
                 print("Task: " + str(task.get_task_id()) + " is assigned to robot " + str(task.get_robot_id()) + " with utility of " + str(task.taskUtility) + "")
             else:
                 print("Task: " + str(task.get_task_id()) + " could not be assigned to any robot in the first run.")
@@ -95,6 +97,8 @@ class SPTPrint(Print):
         averageUtility = round(averageUtility / len(task_list), 2)
         print("")
         print("Average allocation utility value is " + str(averageUtility) + "")
+        print("")
+        print("Total Task Allocations Made: " + str(totalTaskAllocations) + "")
         
     # function to print the global and local runtime of the algorithm
     def print_time_taken_to_allocate(self, task_list):
@@ -117,7 +121,7 @@ class SPTPrint(Print):
             if task.taskAllocated :
 
                 if task.timesReallocated > 0 :
-                    reallocations_performed += 1
+                    reallocations_performed += task.timesReallocated
                     print("Task " + str(task.get_task_id()) + " was deallocated " + str(task.timesReallocated) + " times")
                     print("Time wasted on deallocation " + str(round(task.get_time_wasted_on_dealloaction(), 4)) + " seconds")
                     print("Time taken to allocate task-" + str(task.get_task_id())  + " was " + str(round(task.get_time_taken_to_allocate(), 4)) + " seconds")
@@ -131,7 +135,7 @@ class SPTPrint(Print):
             # Task not allocated
             else:
                 if task.timesReallocated > 0 :
-                    reallocations_performed += 1
+                    reallocations_performed += task.timesReallocated
                     print("Task was allocated but deallocated later")
                     print("Task " + str(task.get_task_id()) + " was deallocated " + str(task.timesReallocated) + " times")
                     print("Time wasted on deallocation " + str(task.get_time_wasted_on_dealloaction()))

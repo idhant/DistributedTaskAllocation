@@ -1,0 +1,2059 @@
+This file is for SPT/Experiment-2/Case-1/Set-2/Run-2
+Experiment-2: Scalability Test
+Case-1:  
+Set-2: Number of agents and tasks equal to 50.
+Run-2.
+
+*****
+Task Allocations
+*****
+
+Task: 0 is assigned to robot 1 with utility of 0.14
+Task: 1 is assigned to robot 0 with utility of 0.11
+Task: 2 is assigned to robot 3 with utility of 0.23
+Task: 3 is assigned to robot 6 with utility of 0.12
+Task: 4 is assigned to robot 2 with utility of 0.45
+Task: 5 is assigned to robot 4 with utility of 0.08
+Task: 6 is assigned to robot 5 with utility of 0.13
+Task: 7 is assigned to robot 7 with utility of 0.2
+Task: 8 is assigned to robot 16 with utility of 0.48
+Task: 9 is assigned to robot 20 with utility of 0.2
+Task: 10 is assigned to robot 24 with utility of 2.52
+Task: 11 is assigned to robot 8 with utility of 0.04
+Task: 12 is assigned to robot 9 with utility of 0.12
+Task: 13 could not be assigned to any robot in the first run.
+Task: 14 could not be assigned to any robot in the first run.
+Task: 15 could not be assigned to any robot in the first run.
+Task: 16 could not be assigned to any robot in the first run.
+Task: 17 could not be assigned to any robot in the first run.
+Task: 18 could not be assigned to any robot in the first run.
+Task: 19 is assigned to robot 40 with utility of 0.28
+Task: 20 is assigned to robot 42 with utility of 0.18
+Task: 21 could not be assigned to any robot in the first run.
+Task: 22 is assigned to robot 49 with utility of 0.08
+Task: 23 could not be assigned to any robot in the first run.
+Task: 24 is assigned to robot 46 with utility of 0.17
+Task: 25 could not be assigned to any robot in the first run.
+Task: 26 could not be assigned to any robot in the first run.
+Task: 27 could not be assigned to any robot in the first run.
+Task: 28 could not be assigned to any robot in the first run.
+Task: 29 could not be assigned to any robot in the first run.
+Task: 30 is assigned to robot 39 with utility of 0.25
+Task: 31 is assigned to robot 41 with utility of 0.22
+Task: 32 could not be assigned to any robot in the first run.
+Task: 33 could not be assigned to any robot in the first run.
+Task: 34 could not be assigned to any robot in the first run.
+Task: 35 could not be assigned to any robot in the first run.
+Task: 36 is assigned to robot 43 with utility of 0.11
+Task: 37 could not be assigned to any robot in the first run.
+Task: 38 could not be assigned to any robot in the first run.
+Task: 39 could not be assigned to any robot in the first run.
+Task: 40 is assigned to robot 44 with utility of 0.09
+Task: 41 is assigned to robot 45 with utility of 0.13
+Task: 42 could not be assigned to any robot in the first run.
+Task: 43 could not be assigned to any robot in the first run.
+Task: 44 could not be assigned to any robot in the first run.
+Task: 45 is assigned to robot 47 with utility of 0.1
+Task: 46 could not be assigned to any robot in the first run.
+Task: 47 could not be assigned to any robot in the first run.
+Task: 48 is assigned to robot 48 with utility of 0.17
+Task: 49 could not be assigned to any robot in the first run.
+
+Average allocation utility value is 0.13
+
+Total Task Allocations Made: 24
+
+*****
+Time taken to allocate tasks:
+*****
+
+Time taken to allocate for particular tasks:
+
+Time taken to allocate task-0 was 0.0003 seconds
+Time taken to allocate task-1 was 0.0003 seconds
+Time taken to allocate task-2 was 0.0003 seconds
+Time taken to allocate task-3 was 0.0004 seconds
+Time taken to allocate task-4 was 0.0004 seconds
+Time taken to allocate task-5 was 0.0004 seconds
+Time taken to allocate task-6 was 0.0005 seconds
+Time taken to allocate task-7 was 0.0005 seconds
+Time taken to allocate task-8 was 0.0005 seconds
+Time taken to allocate task-9 was 0.0006 seconds
+Time taken to allocate task-10 was 0.0006 seconds
+Time taken to allocate task-11 was 0.0006 seconds
+Time taken to allocate task-12 was 0.0006 seconds
+Task was never allocated
+Task was never allocated
+Task was never allocated
+Task was never allocated
+Task was never allocated
+Task was never allocated
+Time taken to allocate task-19 was 0.0014 seconds
+Time taken to allocate task-20 was 0.0014 seconds
+Task was allocated but deallocated later
+Task 21 was deallocated 1 times
+Time wasted on deallocation 0.0017560000000000006
+Task 22 was deallocated 1 times
+Time wasted on deallocation 0.0024 seconds
+Time taken to allocate task-22 was 0.0064 seconds
+Task was allocated but deallocated later
+Task 23 was deallocated 1 times
+Time wasted on deallocation 0.001831199999999998
+Time taken to allocate task-24 was 0.0015 seconds
+Task was allocated but deallocated later
+Task 25 was deallocated 1 times
+Time wasted on deallocation 0.0033159999999999995
+Task was allocated but deallocated later
+Task 26 was deallocated 1 times
+Time wasted on deallocation 0.0020768999999999996
+Task was allocated but deallocated later
+Task 27 was deallocated 1 times
+Time wasted on deallocation 0.002166299999999996
+Task was allocated but deallocated later
+Task 28 was deallocated 1 times
+Time wasted on deallocation 0.0018946000000000032
+Task was allocated but deallocated later
+Task 29 was deallocated 1 times
+Time wasted on deallocation 0.001978399999999998
+Time taken to allocate task-30 was 0.0019 seconds
+Time taken to allocate task-31 was 0.002 seconds
+Task was allocated but deallocated later
+Task 32 was deallocated 1 times
+Time wasted on deallocation 0.0031150999999999957
+Task was allocated but deallocated later
+Task 33 was deallocated 1 times
+Time wasted on deallocation 0.0039808999999999956
+Task was allocated but deallocated later
+Task 34 was deallocated 1 times
+Time wasted on deallocation 0.006323099999999998
+Task was allocated but deallocated later
+Task 35 was deallocated 1 times
+Time wasted on deallocation 0.002752400000000002
+Time taken to allocate task-36 was 0.0024 seconds
+Task was never allocated
+Task was allocated but deallocated later
+Task 38 was deallocated 1 times
+Time wasted on deallocation 0.004482800000000002
+Task was never allocated
+Time taken to allocate task-40 was 0.0031 seconds
+Time taken to allocate task-41 was 0.0033 seconds
+Task was never allocated
+Task was never allocated
+Task was never allocated
+Time taken to allocate task-45 was 0.0039 seconds
+Task was never allocated
+Task was never allocated
+Time taken to allocate task-48 was 0.0045 seconds
+Task was never allocated
+
+Total time taken to allocate all the tasks was 0.0735 seconds.
+
+Reallocations were performed 13 times in total.
+
+Time consumed in reallocation of the the tasks was 0.0381 seconds.
+
+
+*****
+Robot Details in the system:
+*****
+
+*****
+Robot ID: 0
+Robot Type: ground_robot
+Robot Location: 
+X: 178.75
+Y: 32.96
+Z: 164.87
+Robot Zone: 2
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: True
+Robot is allocated to task: 1
+Robot is allocated to a service task : 1
+*****
+
+*****
+Robot ID: 1
+Robot Type: ground_robot
+Robot Location: 
+X: 104.41
+Y: 182.92
+Z: 60.27
+Robot Zone: 3
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: True
+Robot is allocated to task: 0
+Robot is allocated to a service task : 0
+*****
+
+*****
+Robot ID: 2
+Robot Type: ground_robot
+Robot Location: 
+X: 188.64
+Y: 15.59
+Z: 146.73
+Robot Zone: 2
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: True
+Robot is allocated to task: 4
+Robot is allocated to a service task : 4
+*****
+
+*****
+Robot ID: 3
+Robot Type: ground_robot
+Robot Location: 
+X: 197.17
+Y: 175.85
+Z: 157.26
+Robot Zone: 3
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: True
+Robot is allocated to task: 2
+Robot is allocated to a service task : 2
+*****
+
+*****
+Robot ID: 4
+Robot Type: ground_robot
+Robot Location: 
+X: 39.54
+Y: 174.66
+Z: 49.55
+Robot Zone: 4
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: True
+Robot is allocated to task: 5
+Robot is allocated to a service task : 5
+*****
+
+*****
+Robot ID: 5
+Robot Type: ground_robot
+Robot Location: 
+X: 153.14
+Y: 69.23
+Z: 197.92
+Robot Zone: 2
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: True
+Robot is allocated to task: 6
+Robot is allocated to a service task : 6
+*****
+
+*****
+Robot ID: 6
+Robot Type: ground_robot
+Robot Location: 
+X: 150.71
+Y: 100.06
+Z: 165.73
+Robot Zone: 3
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: True
+Robot is allocated to task: 3
+Robot is allocated to a service task : 3
+*****
+
+*****
+Robot ID: 7
+Robot Type: ground_robot
+Robot Location: 
+X: 150.65
+Y: 1.22
+Z: 96.49
+Robot Zone: 2
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: True
+Robot is allocated to task: 7
+Robot is allocated to a service task : 7
+*****
+
+*****
+Robot ID: 8
+Robot Type: ground_robot
+Robot Location: 
+X: 28.85
+Y: 190.51
+Z: 182.5
+Robot Zone: 4
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: True
+Robot is allocated to task: 11
+Robot is allocated to a service task : 11
+*****
+
+*****
+Robot ID: 9
+Robot Type: ground_robot
+Robot Location: 
+X: 105.59
+Y: 103.02
+Z: 82.67
+Robot Zone: 3
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: True
+Robot is allocated to task: 12
+Robot is allocated to a service task : 12
+*****
+
+*****
+Robot ID: 10
+Robot Type: ground_robot
+Robot Location: 
+X: 4.66
+Y: 110.18
+Z: 46.39
+Robot Zone: 4
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 11
+Robot Type: ground_robot
+Robot Location: 
+X: 188.06
+Y: 194.0
+Z: 136.82
+Robot Zone: 3
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 12
+Robot Type: ground_robot
+Robot Location: 
+X: 108.73
+Y: 44.94
+Z: 168.96
+Robot Zone: 2
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 13
+Robot Type: ground_robot
+Robot Location: 
+X: 38.77
+Y: 193.9
+Z: 195.53
+Robot Zone: 4
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 14
+Robot Type: ground_robot
+Robot Location: 
+X: 50.76
+Y: 160.45
+Z: 30.77
+Robot Zone: 4
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 15
+Robot Type: ground_robot
+Robot Location: 
+X: 3.33
+Y: 176.29
+Z: 163.51
+Robot Zone: 4
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 16
+Robot Type: ground_robot
+Robot Location: 
+X: 34.9
+Y: 90.2
+Z: 102.73
+Robot Zone: 1
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: True
+Robot is allocated to task: 8
+Robot is allocated to a service task : 8
+*****
+
+*****
+Robot ID: 17
+Robot Type: ground_robot
+Robot Location: 
+X: 197.28
+Y: 107.12
+Z: 153.96
+Robot Zone: 3
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 18
+Robot Type: ground_robot
+Robot Location: 
+X: 156.64
+Y: 44.29
+Z: 108.97
+Robot Zone: 2
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 19
+Robot Type: ground_robot
+Robot Location: 
+X: 168.18
+Y: 191.91
+Z: 4.2
+Robot Zone: 3
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 20
+Robot Type: ground_robot
+Robot Location: 
+X: 32.24
+Y: 93.7
+Z: 141.48
+Robot Zone: 1
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: True
+Robot is allocated to task: 9
+Robot is allocated to a service task : 9
+*****
+
+*****
+Robot ID: 21
+Robot Type: ground_robot
+Robot Location: 
+X: 187.45
+Y: 93.1
+Z: 185.28
+Robot Zone: 2
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 22
+Robot Type: ground_robot
+Robot Location: 
+X: 126.56
+Y: 117.31
+Z: 109.18
+Robot Zone: 3
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 23
+Robot Type: ground_robot
+Robot Location: 
+X: 194.77
+Y: 55.61
+Z: 157.37
+Robot Zone: 2
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 24
+Robot Type: ground_robot
+Robot Location: 
+X: 24.57
+Y: 52.02
+Z: 198.32
+Robot Zone: 1
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: True
+Robot is allocated to task: 10
+Robot is allocated to a service task : 10
+*****
+
+*****
+Robot ID: 25
+Robot Type: ground_robot
+Robot Location: 
+X: 153.78
+Y: 103.65
+Z: 19.68
+Robot Zone: 3
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 26
+Robot Type: ground_robot
+Robot Location: 
+X: 152.79
+Y: 29.29
+Z: 111.0
+Robot Zone: 2
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 27
+Robot Type: ground_robot
+Robot Location: 
+X: 180.27
+Y: 111.5
+Z: 113.34
+Robot Zone: 3
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 28
+Robot Type: ground_robot
+Robot Location: 
+X: 142.21
+Y: 97.69
+Z: 88.33
+Robot Zone: 2
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 29
+Robot Type: ground_robot
+Robot Location: 
+X: 131.33
+Y: 146.69
+Z: 2.5
+Robot Zone: 3
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 30
+Robot Type: ground_robot
+Robot Location: 
+X: 34.3
+Y: 10.91
+Z: 72.54
+Robot Zone: 1
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 31
+Robot Type: ground_robot
+Robot Location: 
+X: 24.68
+Y: 142.28
+Z: 157.68
+Robot Zone: 4
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 32
+Robot Type: ground_robot
+Robot Location: 
+X: 66.8
+Y: 72.59
+Z: 161.26
+Robot Zone: 1
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 33
+Robot Type: ground_robot
+Robot Location: 
+X: 125.74
+Y: 2.45
+Z: 63.99
+Robot Zone: 2
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 34
+Robot Type: ground_robot
+Robot Location: 
+X: 10.74
+Y: 163.58
+Z: 105.85
+Robot Zone: 4
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 35
+Robot Type: ground_robot
+Robot Location: 
+X: 39.38
+Y: 126.58
+Z: 59.61
+Robot Zone: 4
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 36
+Robot Type: ground_robot
+Robot Location: 
+X: 77.57
+Y: 108.79
+Z: 51.12
+Robot Zone: 4
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 37
+Robot Type: ground_robot
+Robot Location: 
+X: 134.62
+Y: 157.49
+Z: 162.1
+Robot Zone: 3
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 38
+Robot Type: ground_robot
+Robot Location: 
+X: 60.79
+Y: 120.53
+Z: 115.74
+Robot Zone: 4
+Robot Task Capabilities: 
+ground_fire_extinguish
+ground_rescue
+Robot Status: False
+Robot is not allocated any task.
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 39
+Robot Type: aerial_robot
+Robot Location: 
+X: 10.06
+Y: 136.82
+Z: 120.65
+Robot Zone: 4
+Robot Task Capabilities: 
+aerial_fire_extinguish
+aerial_rescue
+Robot Status: True
+Robot is allocated to task: 30
+Robot is allocated to a service task : 21
+*****
+
+*****
+Robot ID: 40
+Robot Type: aerial_robot
+Robot Location: 
+X: 95.97
+Y: 5.05
+Z: 64.22
+Robot Zone: 1
+Robot Task Capabilities: 
+aerial_fire_extinguish
+aerial_rescue
+Robot Status: True
+Robot is allocated to task: 19
+Robot is allocated to a service task : 19
+*****
+
+*****
+Robot ID: 41
+Robot Type: aerial_robot
+Robot Location: 
+X: 115.35
+Y: 122.29
+Z: 48.28
+Robot Zone: 3
+Robot Task Capabilities: 
+aerial_fire_extinguish
+aerial_rescue
+Robot Status: True
+Robot is allocated to task: 31
+Robot is allocated to a service task : 23
+*****
+
+*****
+Robot ID: 42
+Robot Type: aerial_robot
+Robot Location: 
+X: 59.31
+Y: 16.26
+Z: 173.05
+Robot Zone: 1
+Robot Task Capabilities: 
+aerial_fire_extinguish
+aerial_rescue
+Robot Status: True
+Robot is allocated to task: 20
+Robot is allocated to a service task : 20
+*****
+
+*****
+Robot ID: 43
+Robot Type: aerial_robot
+Robot Location: 
+X: 180.19
+Y: 82.0
+Z: 62.16
+Robot Zone: 2
+Robot Task Capabilities: 
+aerial_fire_extinguish
+aerial_rescue
+Robot Status: True
+Robot is allocated to task: 36
+Robot is allocated to a service task : 22
+*****
+
+*****
+Robot ID: 44
+Robot Type: aerial_robot
+Robot Location: 
+X: 193.81
+Y: 125.97
+Z: 95.55
+Robot Zone: 3
+Robot Task Capabilities: 
+aerial_fire_extinguish
+aerial_rescue
+Robot Status: True
+Robot is allocated to task: 40
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 45
+Robot Type: aerial_robot
+Robot Location: 
+X: 181.98
+Y: 9.46
+Z: 40.1
+Robot Zone: 2
+Robot Task Capabilities: 
+aerial_fire_extinguish
+aerial_rescue
+Robot Status: True
+Robot is allocated to task: 41
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 46
+Robot Type: aerial_robot
+Robot Location: 
+X: 44.89
+Y: 83.17
+Z: 10.41
+Robot Zone: 1
+Robot Task Capabilities: 
+aerial_fire_extinguish
+aerial_rescue
+Robot Status: True
+Robot is allocated to task: 24
+Robot is allocated to a service task : 24
+*****
+
+*****
+Robot ID: 47
+Robot Type: aerial_robot
+Robot Location: 
+X: 145.56
+Y: 144.73
+Z: 187.33
+Robot Zone: 3
+Robot Task Capabilities: 
+aerial_fire_extinguish
+aerial_rescue
+Robot Status: True
+Robot is allocated to task: 45
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 48
+Robot Type: aerial_robot
+Robot Location: 
+X: 137.76
+Y: 118.92
+Z: 177.51
+Robot Zone: 3
+Robot Task Capabilities: 
+aerial_fire_extinguish
+aerial_rescue
+Robot Status: True
+Robot is allocated to task: 48
+Robot is not allocated to any service task.
+*****
+
+*****
+Robot ID: 49
+Robot Type: aerial_robot
+Robot Location: 
+X: 96.49
+Y: 188.0
+Z: 71.38
+Robot Zone: 4
+Robot Task Capabilities: 
+aerial_fire_extinguish
+aerial_rescue
+Robot Status: True
+Robot is allocated to task: 22
+Robot is allocated to a service task : 22
+*****
+
+
+*****
+Task Details in the system:
+*****
+
+*****
+Task ID: 0
+Task Type: ground_rescue
+Task Quality: 8
+Task Location: 
+X: 160.46
+Y: 186.28
+z: 55.19
+Task Zone: 3
+Task Time Added: 0.0459
+Task Allocated: True
+Robot Allocated to this task: 1
+Time Allocated: 0.0462
+Time Taken to allocate: 0.0003
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: True
+Service Task ID: 0
+Service Task Type: ground_fire_extinguish
+Service Task Quality: 4
+Service Task Location: 
+X: 160.46
+Y: 186.28
+z: 55.19
+Service Task Zone: 3
+Service Task Time Added: 0.0459
+*****
+
+*****
+Task ID: 1
+Task Type: ground_rescue
+Task Quality: 12.0
+Task Location: 
+X: 120.35
+Y: 57.4
+z: 78.72
+Task Zone: 2
+Task Time Added: 0.0459
+Task Allocated: True
+Robot Allocated to this task: 0
+Time Allocated: 0.0462
+Time Taken to allocate: 0.0003
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: True
+Service Task ID: 1
+Service Task Type: ground_fire_extinguish
+Service Task Quality: 6.0
+Service Task Location: 
+X: 120.35
+Y: 57.4
+z: 78.72
+Service Task Zone: 2
+Service Task Time Added: 0.0459
+*****
+
+*****
+Task ID: 2
+Task Type: ground_rescue
+Task Quality: 8
+Task Location: 
+X: 164.02
+Y: 168.59
+z: 163.91
+Task Zone: 3
+Task Time Added: 0.0459
+Task Allocated: True
+Robot Allocated to this task: 3
+Time Allocated: 0.0462
+Time Taken to allocate: 0.0003
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: True
+Service Task ID: 2
+Service Task Type: ground_fire_extinguish
+Service Task Quality: 4
+Service Task Location: 
+X: 164.02
+Y: 168.59
+z: 163.91
+Service Task Zone: 3
+Service Task Time Added: 0.0459
+*****
+
+*****
+Task ID: 3
+Task Type: ground_rescue
+Task Quality: 8
+Task Location: 
+X: 164.86
+Y: 156.19
+z: 130.58
+Task Zone: 3
+Task Time Added: 0.0459
+Task Allocated: True
+Robot Allocated to this task: 6
+Time Allocated: 0.0463
+Time Taken to allocate: 0.0004
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: True
+Service Task ID: 3
+Service Task Type: ground_rescue
+Service Task Quality: 8
+Service Task Location: 
+X: 164.86
+Y: 156.19
+z: 130.58
+Service Task Zone: 3
+Service Task Time Added: 0.0459
+*****
+
+*****
+Task ID: 4
+Task Type: ground_rescue
+Task Quality: 12.0
+Task Location: 
+X: 170.86
+Y: 31.2
+z: 159.65
+Task Zone: 2
+Task Time Added: 0.0459
+Task Allocated: True
+Robot Allocated to this task: 2
+Time Allocated: 0.0463
+Time Taken to allocate: 0.0004
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: True
+Service Task ID: 4
+Service Task Type: ground_fire_extinguish
+Service Task Quality: 6.0
+Service Task Location: 
+X: 170.86
+Y: 31.2
+z: 159.65
+Service Task Zone: 2
+Service Task Time Added: 0.0459
+*****
+
+*****
+Task ID: 5
+Task Type: ground_rescue
+Task Quality: 6.0
+Task Location: 
+X: 10.68
+Y: 186.75
+z: 114.72
+Task Zone: 4
+Task Time Added: 0.0459
+Task Allocated: True
+Robot Allocated to this task: 4
+Time Allocated: 0.0464
+Time Taken to allocate: 0.0004
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: True
+Service Task ID: 5
+Service Task Type: ground_rescue
+Service Task Quality: 6.0
+Service Task Location: 
+X: 10.68
+Y: 186.75
+z: 114.72
+Service Task Zone: 4
+Service Task Time Added: 0.0459
+*****
+
+*****
+Task ID: 6
+Task Type: ground_rescue
+Task Quality: 12.0
+Task Location: 
+X: 101.07
+Y: 4.97
+z: 152.79
+Task Zone: 2
+Task Time Added: 0.0459
+Task Allocated: True
+Robot Allocated to this task: 5
+Time Allocated: 0.0464
+Time Taken to allocate: 0.0005
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: True
+Service Task ID: 6
+Service Task Type: ground_rescue
+Service Task Quality: 12.0
+Service Task Location: 
+X: 101.07
+Y: 4.97
+z: 152.79
+Service Task Zone: 2
+Service Task Time Added: 0.0459
+*****
+
+*****
+Task ID: 7
+Task Type: ground_rescue
+Task Quality: 12.0
+Task Location: 
+X: 182.35
+Y: 53.92
+z: 94.83
+Task Zone: 2
+Task Time Added: 0.0459
+Task Allocated: True
+Robot Allocated to this task: 7
+Time Allocated: 0.0464
+Time Taken to allocate: 0.0005
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: True
+Service Task ID: 7
+Service Task Type: ground_fire_extinguish
+Service Task Quality: 6.0
+Service Task Location: 
+X: 182.35
+Y: 53.92
+z: 94.83
+Service Task Zone: 2
+Service Task Time Added: 0.0459
+*****
+
+*****
+Task ID: 8
+Task Type: ground_rescue
+Task Quality: 24
+Task Location: 
+X: 32.83
+Y: 43.65
+z: 121.25
+Task Zone: 1
+Task Time Added: 0.0459
+Task Allocated: True
+Robot Allocated to this task: 16
+Time Allocated: 0.0465
+Time Taken to allocate: 0.0005
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: True
+Service Task ID: 8
+Service Task Type: ground_rescue
+Service Task Quality: 24
+Service Task Location: 
+X: 32.83
+Y: 43.65
+z: 121.25
+Service Task Zone: 1
+Service Task Time Added: 0.0459
+*****
+
+*****
+Task ID: 9
+Task Type: ground_rescue
+Task Quality: 24
+Task Location: 
+X: 42.71
+Y: 31.76
+z: 37.07
+Task Zone: 1
+Task Time Added: 0.0459
+Task Allocated: True
+Robot Allocated to this task: 20
+Time Allocated: 0.0465
+Time Taken to allocate: 0.0006
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: True
+Service Task ID: 9
+Service Task Type: ground_rescue
+Service Task Quality: 24
+Service Task Location: 
+X: 42.71
+Y: 31.76
+z: 37.07
+Service Task Zone: 1
+Service Task Time Added: 0.0459
+*****
+
+*****
+Task ID: 10
+Task Type: ground_rescue
+Task Quality: 24
+Task Location: 
+X: 27.36
+Y: 50.71
+z: 189.29
+Task Zone: 1
+Task Time Added: 0.0459
+Task Allocated: True
+Robot Allocated to this task: 24
+Time Allocated: 0.0465
+Time Taken to allocate: 0.0006
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: True
+Service Task ID: 10
+Service Task Type: ground_rescue
+Service Task Quality: 24
+Service Task Location: 
+X: 27.36
+Y: 50.71
+z: 189.29
+Service Task Zone: 1
+Service Task Time Added: 0.0459
+*****
+
+*****
+Task ID: 11
+Task Type: ground_rescue
+Task Quality: 6.0
+Task Location: 
+X: 88.27
+Y: 123.47
+z: 45.63
+Task Zone: 4
+Task Time Added: 0.046
+Task Allocated: True
+Robot Allocated to this task: 8
+Time Allocated: 0.0466
+Time Taken to allocate: 0.0006
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: True
+Service Task ID: 11
+Service Task Type: ground_fire_extinguish
+Service Task Quality: 3.0
+Service Task Location: 
+X: 88.27
+Y: 123.47
+z: 45.63
+Service Task Zone: 4
+Service Task Time Added: 0.046
+*****
+
+*****
+Task ID: 12
+Task Type: ground_rescue
+Task Quality: 8
+Task Location: 
+X: 156.17
+Y: 124.62
+z: 118.62
+Task Zone: 3
+Task Time Added: 0.046
+Task Allocated: True
+Robot Allocated to this task: 9
+Time Allocated: 0.0466
+Time Taken to allocate: 0.0006
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: True
+Service Task ID: 12
+Service Task Type: ground_rescue
+Service Task Quality: 8
+Service Task Location: 
+X: 156.17
+Y: 124.62
+z: 118.62
+Service Task Zone: 3
+Service Task Time Added: 0.046
+*****
+
+*****
+Task ID: 13
+Task Type: ground_rescue
+Task Quality: 6.0
+Task Location: 
+X: 50.66
+Y: 178.86
+z: 149.86
+Task Zone: 4
+Task Time Added: 0.046
+Task Allocated: False
+
+Service Required: True
+Service Task ID: 13
+Service Task Type: aerial_rescue
+Service Task Quality: 7.5
+Service Task Location: 
+X: 50.66
+Y: 178.86
+z: 149.86
+Service Task Zone: 4
+Service Task Time Added: 0.046
+*****
+
+*****
+Task ID: 14
+Task Type: ground_fire_extinguish
+Task Quality: 4
+Task Location: 
+X: 168.05
+Y: 128.27
+z: 73.42
+Task Zone: 3
+Task Time Added: 0.046
+Task Allocated: False
+
+Service Required: True
+Service Task ID: 14
+Service Task Type: aerial_fire_extinguish
+Service Task Quality: 6
+Service Task Location: 
+X: 168.05
+Y: 128.27
+z: 73.42
+Service Task Zone: 3
+Service Task Time Added: 0.046
+*****
+
+*****
+Task ID: 15
+Task Type: ground_fire_extinguish
+Task Quality: 3.0
+Task Location: 
+X: 81.2
+Y: 136.54
+z: 40.5
+Task Zone: 4
+Task Time Added: 0.046
+Task Allocated: False
+
+Service Required: True
+Service Task ID: 15
+Service Task Type: aerial_fire_extinguish
+Service Task Quality: 4.5
+Service Task Location: 
+X: 81.2
+Y: 136.54
+z: 40.5
+Service Task Zone: 4
+Service Task Time Added: 0.046
+*****
+
+*****
+Task ID: 16
+Task Type: ground_fire_extinguish
+Task Quality: 4
+Task Location: 
+X: 158.64
+Y: 140.34
+z: 29.5
+Task Zone: 3
+Task Time Added: 0.046
+Task Allocated: False
+
+Service Required: True
+Service Task ID: 16
+Service Task Type: aerial_fire_extinguish
+Service Task Quality: 6
+Service Task Location: 
+X: 158.64
+Y: 140.34
+z: 29.5
+Service Task Zone: 3
+Service Task Time Added: 0.046
+*****
+
+*****
+Task ID: 17
+Task Type: ground_fire_extinguish
+Task Quality: 4
+Task Location: 
+X: 112.52
+Y: 149.24
+z: 93.77
+Task Zone: 3
+Task Time Added: 0.046
+Task Allocated: False
+
+Service Required: True
+Service Task ID: 17
+Service Task Type: aerial_rescue
+Service Task Quality: 10
+Service Task Location: 
+X: 112.52
+Y: 149.24
+z: 93.77
+Service Task Zone: 3
+Service Task Time Added: 0.046
+*****
+
+*****
+Task ID: 18
+Task Type: ground_fire_extinguish
+Task Quality: 3.0
+Task Location: 
+X: 0.58
+Y: 176.86
+z: 135.74
+Task Zone: 4
+Task Time Added: 0.046
+Task Allocated: False
+
+Service Required: True
+Service Task ID: 18
+Service Task Type: aerial_rescue
+Service Task Quality: 7.5
+Service Task Location: 
+X: 0.58
+Y: 176.86
+z: 135.74
+Service Task Zone: 4
+Service Task Time Added: 0.046
+*****
+
+*****
+Task ID: 19
+Task Type: aerial_rescue
+Task Quality: 30
+Task Location: 
+X: 30.85
+Y: 31.56
+z: 144.23
+Task Zone: 1
+Task Time Added: 0.046
+Task Allocated: True
+Robot Allocated to this task: 40
+Time Allocated: 0.0474
+Time Taken to allocate: 0.0014
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: True
+Service Task ID: 19
+Service Task Type: aerial_rescue
+Service Task Quality: 30
+Service Task Location: 
+X: 30.85
+Y: 31.56
+z: 144.23
+Service Task Zone: 1
+Service Task Time Added: 0.046
+*****
+
+*****
+Task ID: 20
+Task Type: aerial_rescue
+Task Quality: 30
+Task Location: 
+X: 29.6
+Y: 37.02
+z: 6.23
+Task Zone: 1
+Task Time Added: 0.046
+Task Allocated: True
+Robot Allocated to this task: 42
+Time Allocated: 0.0474
+Time Taken to allocate: 0.0014
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: True
+Service Task ID: 20
+Service Task Type: aerial_fire_extinguish
+Service Task Quality: 18
+Service Task Location: 
+X: 29.6
+Y: 37.02
+z: 6.23
+Service Task Zone: 1
+Service Task Time Added: 0.046
+*****
+
+*****
+Task ID: 21
+Task Type: aerial_rescue
+Task Quality: 7.5
+Task Location: 
+X: 0.24
+Y: 130.75
+z: 71.83
+Task Zone: 4
+Task Time Added: 0.046
+Task Allocated: False
+
+Service Required: True
+Service Task ID: 21
+Service Task Type: aerial_rescue
+Service Task Quality: 7.5
+Service Task Location: 
+X: 0.24
+Y: 130.75
+z: 71.83
+Service Task Zone: 4
+Service Task Time Added: 0.046
+*****
+
+*****
+Task ID: 22
+Task Type: aerial_rescue
+Task Quality: 15.0
+Task Location: 
+X: 174.28
+Y: 17.2
+z: 96.05
+Task Zone: 2
+Task Time Added: 0.046
+Task Allocated: True
+Robot Allocated to this task: 49
+Time Allocated: 0.0524
+Time Taken to allocate: 0.0064
+Times Reallocated: 1
+Time Consumed in reallocations: 0.0485
+
+Service Required: True
+Service Task ID: 22
+Service Task Type: aerial_fire_extinguish
+Service Task Quality: 9.0
+Service Task Location: 
+X: 174.28
+Y: 17.2
+z: 96.05
+Service Task Zone: 2
+Service Task Time Added: 0.046
+*****
+
+*****
+Task ID: 23
+Task Type: aerial_rescue
+Task Quality: 10
+Task Location: 
+X: 147.95
+Y: 158.72
+z: 91.58
+Task Zone: 3
+Task Time Added: 0.046
+Task Allocated: False
+
+Service Required: True
+Service Task ID: 23
+Service Task Type: aerial_rescue
+Service Task Quality: 10
+Service Task Location: 
+X: 147.95
+Y: 158.72
+z: 91.58
+Service Task Zone: 3
+Service Task Time Added: 0.046
+*****
+
+*****
+Task ID: 24
+Task Type: aerial_rescue
+Task Quality: 30
+Task Location: 
+X: 49.36
+Y: 27.26
+z: 180.71
+Task Zone: 1
+Task Time Added: 0.046
+Task Allocated: True
+Robot Allocated to this task: 46
+Time Allocated: 0.0476
+Time Taken to allocate: 0.0015
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: True
+Service Task ID: 24
+Service Task Type: aerial_fire_extinguish
+Service Task Quality: 18
+Service Task Location: 
+X: 49.36
+Y: 27.26
+z: 180.71
+Service Task Zone: 1
+Service Task Time Added: 0.046
+*****
+
+*****
+Task ID: 25
+Task Type: aerial_rescue
+Task Quality: 15.0
+Task Location: 
+X: 190.99
+Y: 3.45
+z: 150.38
+Task Zone: 2
+Task Time Added: 0.046
+Task Allocated: False
+
+Service Required: False
+*****
+
+*****
+Task ID: 26
+Task Type: aerial_rescue
+Task Quality: 10
+Task Location: 
+X: 172.03
+Y: 189.0
+z: 41.55
+Task Zone: 3
+Task Time Added: 0.046
+Task Allocated: False
+
+Service Required: False
+*****
+
+*****
+Task ID: 27
+Task Type: aerial_rescue
+Task Quality: 10
+Task Location: 
+X: 171.34
+Y: 165.62
+z: 70.83
+Task Zone: 3
+Task Time Added: 0.046
+Task Allocated: False
+
+Service Required: False
+*****
+
+*****
+Task ID: 28
+Task Type: aerial_rescue
+Task Quality: 15.0
+Task Location: 
+X: 146.63
+Y: 2.11
+z: 0.66
+Task Zone: 2
+Task Time Added: 0.0461
+Task Allocated: False
+
+Service Required: False
+*****
+
+*****
+Task ID: 29
+Task Type: aerial_rescue
+Task Quality: 15.0
+Task Location: 
+X: 166.68
+Y: 86.87
+z: 36.56
+Task Zone: 2
+Task Time Added: 0.0461
+Task Allocated: False
+
+Service Required: False
+*****
+
+*****
+Task ID: 30
+Task Type: aerial_rescue
+Task Quality: 30
+Task Location: 
+X: 27.4
+Y: 54.51
+z: 36.51
+Task Zone: 1
+Task Time Added: 0.0461
+Task Allocated: True
+Robot Allocated to this task: 39
+Time Allocated: 0.048
+Time Taken to allocate: 0.0019
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: False
+*****
+
+*****
+Task ID: 31
+Task Type: aerial_rescue
+Task Quality: 30
+Task Location: 
+X: 6.36
+Y: 45.19
+z: 78.29
+Task Zone: 1
+Task Time Added: 0.0461
+Task Allocated: True
+Robot Allocated to this task: 41
+Time Allocated: 0.048
+Time Taken to allocate: 0.002
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: False
+*****
+
+*****
+Task ID: 32
+Task Type: aerial_rescue
+Task Quality: 15.0
+Task Location: 
+X: 114.64
+Y: 52.48
+z: 122.25
+Task Zone: 2
+Task Time Added: 0.0461
+Task Allocated: False
+
+Service Required: False
+*****
+
+*****
+Task ID: 33
+Task Type: aerial_rescue
+Task Quality: 15.0
+Task Location: 
+X: 145.65
+Y: 53.13
+z: 144.66
+Task Zone: 2
+Task Time Added: 0.0461
+Task Allocated: False
+
+Service Required: False
+*****
+
+*****
+Task ID: 34
+Task Type: aerial_rescue
+Task Quality: 7.5
+Task Location: 
+X: 59.29
+Y: 110.2
+z: 47.83
+Task Zone: 4
+Task Time Added: 0.0461
+Task Allocated: False
+
+Service Required: False
+*****
+
+*****
+Task ID: 35
+Task Type: aerial_fire_extinguish
+Task Quality: 6
+Task Location: 
+X: 112.07
+Y: 103.2
+z: 114.02
+Task Zone: 3
+Task Time Added: 0.0461
+Task Allocated: False
+
+Service Required: False
+*****
+
+*****
+Task ID: 36
+Task Type: aerial_fire_extinguish
+Task Quality: 18
+Task Location: 
+X: 25.67
+Y: 65.15
+z: 107.45
+Task Zone: 1
+Task Time Added: 0.0461
+Task Allocated: True
+Robot Allocated to this task: 43
+Time Allocated: 0.0485
+Time Taken to allocate: 0.0024
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: False
+*****
+
+*****
+Task ID: 37
+Task Type: aerial_fire_extinguish
+Task Quality: 4.5
+Task Location: 
+X: 35.0
+Y: 156.61
+z: 49.96
+Task Zone: 4
+Task Time Added: 0.0461
+Task Allocated: False
+
+Service Required: False
+*****
+
+*****
+Task ID: 38
+Task Type: aerial_fire_extinguish
+Task Quality: 9.0
+Task Location: 
+X: 144.96
+Y: 66.03
+z: 11.6
+Task Zone: 2
+Task Time Added: 0.0461
+Task Allocated: False
+
+Service Required: False
+*****
+
+*****
+Task ID: 39
+Task Type: aerial_fire_extinguish
+Task Quality: 4.5
+Task Location: 
+X: 26.88
+Y: 137.69
+z: 6.64
+Task Zone: 4
+Task Time Added: 0.0461
+Task Allocated: False
+
+Service Required: False
+*****
+
+*****
+Task ID: 40
+Task Type: aerial_fire_extinguish
+Task Quality: 18
+Task Location: 
+X: 12.72
+Y: 29.86
+z: 126.0
+Task Zone: 1
+Task Time Added: 0.0461
+Task Allocated: True
+Robot Allocated to this task: 44
+Time Allocated: 0.0492
+Time Taken to allocate: 0.0031
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: False
+*****
+
+*****
+Task ID: 41
+Task Type: aerial_fire_extinguish
+Task Quality: 18
+Task Location: 
+X: 65.74
+Y: 87.41
+z: 25.23
+Task Zone: 1
+Task Time Added: 0.0461
+Task Allocated: True
+Robot Allocated to this task: 45
+Time Allocated: 0.0494
+Time Taken to allocate: 0.0033
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: False
+*****
+
+*****
+Task ID: 42
+Task Type: aerial_fire_extinguish
+Task Quality: 4.5
+Task Location: 
+X: 94.08
+Y: 115.59
+z: 196.5
+Task Zone: 4
+Task Time Added: 0.0461
+Task Allocated: False
+
+Service Required: False
+*****
+
+*****
+Task ID: 43
+Task Type: aerial_fire_extinguish
+Task Quality: 4.5
+Task Location: 
+X: 13.05
+Y: 194.99
+z: 165.62
+Task Zone: 4
+Task Time Added: 0.0461
+Task Allocated: False
+
+Service Required: False
+*****
+
+*****
+Task ID: 44
+Task Type: aerial_fire_extinguish
+Task Quality: 4.5
+Task Location: 
+X: 75.12
+Y: 120.45
+z: 172.5
+Task Zone: 4
+Task Time Added: 0.0461
+Task Allocated: False
+
+Service Required: False
+*****
+
+*****
+Task ID: 45
+Task Type: aerial_fire_extinguish
+Task Quality: 18
+Task Location: 
+X: 86.47
+Y: 27.49
+z: 63.49
+Task Zone: 1
+Task Time Added: 0.0461
+Task Allocated: True
+Robot Allocated to this task: 47
+Time Allocated: 0.0501
+Time Taken to allocate: 0.0039
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: False
+*****
+
+*****
+Task ID: 46
+Task Type: aerial_fire_extinguish
+Task Quality: 6
+Task Location: 
+X: 180.18
+Y: 158.48
+z: 41.66
+Task Zone: 3
+Task Time Added: 0.0461
+Task Allocated: False
+
+Service Required: False
+*****
+
+*****
+Task ID: 47
+Task Type: aerial_fire_extinguish
+Task Quality: 6
+Task Location: 
+X: 118.6
+Y: 181.44
+z: 144.28
+Task Zone: 3
+Task Time Added: 0.0461
+Task Allocated: False
+
+Service Required: False
+*****
+
+*****
+Task ID: 48
+Task Type: aerial_fire_extinguish
+Task Quality: 18
+Task Location: 
+X: 36.95
+Y: 96.88
+z: 159.26
+Task Zone: 1
+Task Time Added: 0.0461
+Task Allocated: True
+Robot Allocated to this task: 48
+Time Allocated: 0.0506
+Time Taken to allocate: 0.0045
+Times Reallocated: 0
+Time Consumed in reallocations: 0
+
+Service Required: False
+*****
+
+*****
+Task ID: 49
+Task Type: aerial_fire_extinguish
+Task Quality: 4.5
+Task Location: 
+X: 4.29
+Y: 198.9
+z: 72.63
+Task Zone: 4
+Task Time Added: 0.0461
+Task Allocated: False
+
+Service Required: False
+*****
+
